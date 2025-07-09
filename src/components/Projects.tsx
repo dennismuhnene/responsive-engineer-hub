@@ -24,9 +24,9 @@ const Projects = () => {
         "Advanced MEP coordination"
       ],
       timeline: "18 months",
-      location: "Downtown Metro",
-      budget: "$25M",
-      role: "Lead Structural Engineer",
+      location: "Kitengela Town, Nairobi",
+      budget: "KES 500M",
+      role: "Assistant Structural Engineer",
       status: "Completed"
     },
     {
@@ -41,16 +41,16 @@ const Projects = () => {
         "Traffic management during construction"
       ],
       timeline: "24 months",
-      location: "State Highway 101",
-      budget: "$15M",
-      role: "Project Manager",
+      location: " Eldoret Southern Bypass",
+      budget: "KES 300M",
+      role: "Bridge Design Engineer",
       status: "Completed"
     },
     {
       title: "Residential Complex Development",
       description: "Master planning and structural design for a 200-unit residential complex with community facilities, green spaces, and sustainable infrastructure.",
       image: "/images/projects/residential-complex.jpg",
-      technologies: ["Revit", "SketchUp", "AutoCAD", "Microsoft Project"],
+      technologies: ["Revit", "ETABS", "AutoCAD", "Microsoft Project"],
       features: [
         "Sustainable design principles",
         "Community-centered planning",
@@ -58,8 +58,8 @@ const Projects = () => {
         "Energy-efficient systems"
       ],
       timeline: "30 months",
-      location: "Suburban Development",
-      budget: "$40M",
+      location: "Kilimani Estate",
+      budget: "KES 150M",
       role: "Design Lead",
       status: "In Progress"
     },
@@ -75,9 +75,9 @@ const Projects = () => {
         "Emergency backup systems"
       ],
       timeline: "15 months",
-      location: "Municipal District",
-      budget: "$12M",
-      role: "Technical Consultant",
+      location: "Kilifi County",
+      budget: "KES 200M",
+      role: "Assistant Project Manager",
       status: "Completed"
     }
   ];

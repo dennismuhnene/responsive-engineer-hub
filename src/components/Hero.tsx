@@ -42,10 +42,10 @@ const Hero = ({ scrollToSection }: HeroProps) => {
           <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-primary to-primary/80 flex items-center justify-center text-6xl font-bold text-primary-foreground">
             CE
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
             Civil Engineer
           </h1>
-          <h2 className="text-xl md:text-2xl text-muted-foreground mb-6">
+          <h2 className="text-xl md:text-2xl text-muted-foreground mt-2 mb-6">
             Structural Design • Infrastructure Development • Project Management
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">

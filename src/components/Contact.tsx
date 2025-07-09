@@ -81,19 +81,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'contact@civilengineer.com',
-      href: 'mailto:contact@civilengineer.com'
+      value: 'murithijseph93@gmail.com',
+      href: 'mailto:murithijseph93@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+254 702 096 799',
+      href: 'tel:+254702096799'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'New York, NY',
+      value: 'Nairobi, Kenya',
       href: '#'
     }
   ];
@@ -102,13 +102,13 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/civilengineer',
+      href: 'https://www.linkedin.com/in/joseph-murithi-796682a1',
       color: 'text-blue-600'
     },
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/civilengineer',
+      href: 'https://github.com/dennismuhnene/',
       color: 'text-gray-700 dark:text-gray-300'
     }
   ];

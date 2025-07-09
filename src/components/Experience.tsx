@@ -6,24 +6,24 @@ import { Calendar, MapPin, Building2 } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      company: "Metropolitan Engineering Consultants",
-      position: "Senior Civil Engineer",
-      location: "New York, NY",
+      company: "CGP Engineering Consultants",
+      position: "Assistant Civil & Structural Engineer",
+      location: "Nairobi, Kenya",
       duration: "Jan 2022 - Present",
       type: "Full-time",
-      description: "Leading structural design projects and managing a team of junior engineers on large-scale infrastructure developments.",
+      description: "Assisted in leading structural design projects and managing a team of engineering technicians on large-scale infrastructure developments.",
       achievements: [
-        "Led design of $50M+ commercial high-rise project",
+        "Led design of KES 200M commercial high-rise project",
         "Implemented BIM workflows reducing design time by 30%",
-        "Managed team of 8 engineers across multiple projects",
+        "Managed team of 8 engieers and technicans across multiple projects",
         "Achieved 100% on-time project delivery record"
       ],
       technologies: ["AutoCAD", "Revit", "ETABS", "SAP2000", "BIM 360"]
     },
     {
       company: "Infrastructure Solutions Group",
-      position: "Civil Engineer",
-      location: "Boston, MA",
+      position: "Assistant Civil Engineer",
+      location: "Ngong Road, Nairobi",
       duration: "Jun 2020 - Dec 2021",
       type: "Full-time",
       description: "Specialized in transportation infrastructure projects including highway design and bridge construction supervision.",
@@ -31,14 +31,14 @@ const Experience = () => {
         "Designed 3 major highway bridge projects",
         "Reduced construction costs by 15% through value engineering",
         "Obtained Professional Engineer (PE) license",
-        "Led quality assurance for $25M bridge project"
+        "Led quality assurance for KES 300M bridge project"
       ],
       technologies: ["Civil 3D", "SAP2000", "Primavera P6", "MicroStation"]
     },
     {
       company: "Urban Development Associates",
       position: "Junior Civil Engineer",
-      location: "Philadelphia, PA",
+      location: "Nairobi, Kenya",
       duration: "Aug 2019 - May 2020",
       type: "Full-time",
       description: "Focused on residential and commercial building design, site development, and construction document preparation.",
@@ -51,12 +51,12 @@ const Experience = () => {
       technologies: ["AutoCAD", "Revit", "SketchUp", "Microsoft Project"]
     },
     {
-      company: "City Planning Department",
+      company: "Nyeri County Infrastructure Department",
       position: "Engineering Intern",
-      location: "Pittsburgh, PA",
+      location: "Nyeri, Kenya",
       duration: "Jun 2018 - Aug 2018",
       type: "Internship",
-      description: "Supported municipal infrastructure projects and assisted with environmental impact assessments.",
+      description: "Supported county infrastructure projects and assisted with environmental impact assessments.",
       achievements: [
         "Conducted site surveys for 10+ municipal projects",
         "Assisted in preparing environmental impact reports",
@@ -70,8 +70,8 @@ const Experience = () => {
   const education = [
     {
       degree: "Master of Science in Structural Engineering",
-      school: "Massachusetts Institute of Technology",
-      location: "Cambridge, MA",
+      school: "Univeristy of Nairobi",
+      location: "Nairobi, Kenya",
       duration: "2017 - 2019",
       details: [
         "Specialization in Earthquake Engineering",
@@ -82,8 +82,8 @@ const Experience = () => {
     },
     {
       degree: "Bachelor of Science in Civil Engineering",
-      school: "Pennsylvania State University",
-      location: "University Park, PA",
+      school: "Dedan Kimathi University of Technology",
+      location: "Nyeri, Kenya",
       duration: "2013 - 2017",
       details: [
         "Magna Cum Laude",
@@ -100,7 +100,7 @@ const Experience = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience & Education</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            My professional journey in civil engineering, from internships to senior positions, 
+            My professional journey in civil engineering, from internships to medium-level positions, 
             backed by strong academic foundation.
           </p>
         </div>

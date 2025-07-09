@@ -5,10 +5,10 @@ import { User, GraduationCap, Award, MapPin } from 'lucide-react';
 
 const About = () => {
   const highlights = [
-    { icon: User, title: "5+ Years Experience", desc: "Civil Engineering & Construction" },
-    { icon: GraduationCap, title: "Master's Degree", desc: "Structural Engineering" },
-    { icon: Award, title: "Licensed Engineer", desc: "Professional Engineering License" },
-    { icon: MapPin, title: "Global Projects", desc: "International Experience" }
+    { icon: User, title: "3+ Years Experience", desc: "Civil Engineering & Construction" },
+    { icon: GraduationCap, title: "Bachelor's Degree", desc: "Structural Engineering" },
+    { icon: Award, title: "Graduate Engineer", desc: "EBK Graduate Engineer" },
+    { icon: MapPin, title: "Projects", desc: "Diverse Infrastructure Experience" }
   ];
 
   return (
@@ -26,7 +26,7 @@ const About = () => {
           <div className="space-y-6">
             <div className="prose prose-lg dark:prose-invert">
               <p className="text-muted-foreground leading-relaxed">
-                I am a passionate civil engineer with over 5 years of experience in designing and 
+                I am a passionate civil engineer with over 3 years of experience in designing and 
                 implementing infrastructure projects. My expertise spans across structural analysis, 
                 construction management, and sustainable engineering solutions.
               </p>
@@ -39,7 +39,7 @@ const About = () => {
               <p className="text-muted-foreground leading-relaxed">
                 My commitment to sustainable engineering practices and innovative problem-solving 
                 has earned me recognition in the industry and successful project completions worth 
-                over $50 million in total value.
+                over KES 50 million in total value.
               </p>
             </div>
 
