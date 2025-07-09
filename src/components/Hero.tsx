@@ -7,6 +7,34 @@ interface HeroProps {
 }
 
 const Hero = ({ scrollToSection }: HeroProps) => {
+  const handleDownloadCV = () => {
+    // Check for PDF first, then DOCX
+    const cvFiles = ['/downloads/cv.pdf', '/downloads/cv.docx'];
+    
+    cvFiles.forEach(async (filePath) => {
+      try {
+        const response = await fetch(filePath, { method: 'HEAD' });
+        if (response.ok) {
+          // Create download link
+          const link = document.createElement('a');
+          link.href = filePath;
+          link.download = filePath.split('/').pop() || 'cv';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          
+          // Open PDF in new tab for viewing
+          if (filePath.endsWith('.pdf')) {
+            window.open(filePath, '_blank');
+          }
+          return;
+        }
+      } catch (error) {
+        console.log(`CV file not found: ${filePath}`);
+      }
+    });
+  };
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-6 bg-gradient-to-br from-background to-muted/20">
       <div className="container mx-auto text-center animate-fade-in">
@@ -37,6 +65,7 @@ const Hero = ({ scrollToSection }: HeroProps) => {
           <Button 
             variant="outline" 
             size="lg"
+            onClick={handleDownloadCV}
             className="hover:scale-105 transition-transform duration-200"
           >
             <Download className="mr-2 h-4 w-4" />

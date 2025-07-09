@@ -1,15 +1,21 @@
 
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Calendar, MapPin, DollarSign } from 'lucide-react';
 
 const Projects = () => {
+  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
+
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => ({ ...prev, [index]: true }));
+  };
   const projects = [
     {
       title: "Commercial High-Rise Building",
+      image: "/images/projects/commercial-high-rise.jpg",
       description: "Structural design and construction supervision of a 25-story commercial building with mixed-use spaces including offices, retail, and parking facilities.",
-      image: "/api/placeholder/400/250",
       technologies: ["AutoCAD", "ETABS", "Revit", "BIM 360"],
       features: [
         "Seismic-resistant design",
@@ -26,7 +32,7 @@ const Projects = () => {
     {
       title: "Highway Bridge Infrastructure",
       description: "Design and construction of a 500-meter prestressed concrete bridge connecting two major highways, including approach roads and drainage systems.",
-      image: "/api/placeholder/400/250",
+      image: "/images/projects/highway-bridge.jpg",
       technologies: ["SAP2000", "Civil 3D", "Primavera P6", "GIS"],
       features: [
         "Prestressed concrete design",
@@ -43,7 +49,7 @@ const Projects = () => {
     {
       title: "Residential Complex Development",
       description: "Master planning and structural design for a 200-unit residential complex with community facilities, green spaces, and sustainable infrastructure.",
-      image: "/api/placeholder/400/250",
+      image: "/images/projects/residential-complex.jpg",
       technologies: ["Revit", "SketchUp", "AutoCAD", "Microsoft Project"],
       features: [
         "Sustainable design principles",
@@ -60,7 +66,7 @@ const Projects = () => {
     {
       title: "Water Treatment Facility",
       description: "Design and construction of a modern water treatment plant with capacity for 50,000 residents, including advanced filtration and quality control systems.",
-      image: "/api/placeholder/400/250",
+      image: "/images/projects/water-treatment.jpg",
       technologies: ["Civil 3D", "EPANET", "AutoCAD", "Project Management"],
       features: [
         "Advanced treatment processes",
@@ -91,12 +97,21 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <div className="aspect-video bg-muted relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <div className="text-4xl mb-2">🏗️</div>
-                    <p className="text-sm">{project.title}</p>
+                {imageErrors[index] ? (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <div className="text-center text-muted-foreground">
+                      <div className="text-4xl mb-2">🏗️</div>
+                      <p className="text-sm">{project.title}</p>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    onError={() => handleImageError(index)}
+                  />
+                )}
                 <Badge 
                   className={`absolute top-4 right-4 ${
                     project.status === 'Completed' ? 'bg-green-500' : 'bg-blue-500'

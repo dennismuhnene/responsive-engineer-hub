@@ -1,0 +1,7 @@
+# CV Downloads Directory
+
+Place your CV files here:
+- cv.pdf (preferred format)
+- cv.docx (alternative format)
+
+The Hero component will automatically detect and use these files.
