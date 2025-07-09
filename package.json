@@ -1,9 +1,8 @@
 {
-  "name": "responsive-engineer-hub",
+  "name": "responsiveengineerhub",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://dennismuhnene.github.io/responsive-engineer-hub/",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
