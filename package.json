@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://dennismuhnene.github.io/vite_react_shadcn_ts",
+  "homepage": "https://dennismuhnene.github.io/responsive-engineer-hub/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
