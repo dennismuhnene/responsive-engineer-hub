@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/responsive-engineer-hub", // ✅ required for GitHub Pages
+  base: process.env.GITHUB_PAGES ? "/responsive-engineer-hub/" : "/",
   server: {
     host: "::",
     port: 8080,
