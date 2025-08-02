@@ -60,10 +60,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 px-6 bg-background">
+    <section id="skills" className="py-20 px-4 md:px-6 bg-background">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-16 space-y-4 px-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Skills & Expertise
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -72,7 +72,7 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-16">
           {skillCategories.map((category, index) => (
             <Card
               key={index}
@@ -80,11 +80,14 @@ const Skills = () => {
             >
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-foreground">
-                  <category.icon className="h-6 w-6 text-primary" />
+                  <category.icon
+                    className="h-6 w-6 text-primary"
+                    aria-label={`${category.title} icon`}
+                  />
                   {category.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
@@ -95,7 +98,11 @@ const Skills = () => {
                         {skill.level}%
                       </span>
                     </div>
-                    <Progress value={skill.level} className="h-2" />
+                    <Progress
+                      value={skill.level}
+                      className="h-2"
+                      aria-label={`${skill.name} proficiency ${skill.level}%`}
+                    />
                   </div>
                 ))}
               </CardContent>
@@ -106,7 +113,10 @@ const Skills = () => {
         <Card className="bg-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-3 text-foreground">
-              <Award className="h-6 w-6 text-primary" />
+              <Award
+                className="h-6 w-6 text-primary"
+                aria-label="Certifications icon"
+              />
               Certifications & Licenses
             </CardTitle>
           </CardHeader>
