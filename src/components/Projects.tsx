@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -89,13 +89,20 @@ const Projects = () => {
     },
   ];
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
-  };
+  }, [projects.length]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 15000); // auto-advance every 15 seconds
+    return () => clearInterval(interval);
+  }, [handleNext]);
 
   return (
     <section
@@ -138,7 +145,7 @@ const Projects = () => {
                   onError={() => handleImageError(currentIndex)}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover brightness-[0.75] rounded-xl"
+                  className="w-full h-full object-cover rounded-xl"
                   style={{ imageRendering: "auto" }}
                 />
               )}
@@ -152,29 +159,6 @@ const Projects = () => {
               >
                 {projects[currentIndex].status}
               </Badge>
-
-              <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 text-white">
-                <h3 className="text-2xl sm:text-3xl font-semibold mb-2">
-                  {projects[currentIndex].title}
-                </h3>
-                <p className="text-sm sm:text-base mb-4">
-                  {projects[currentIndex].description}
-                </p>
-                <div className="text-xs sm:text-sm space-y-1">
-                  <div>
-                    <strong>Timeline:</strong> {projects[currentIndex].timeline}
-                  </div>
-                  <div>
-                    <strong>Location:</strong> {projects[currentIndex].location}
-                  </div>
-                  <div>
-                    <strong>Budget:</strong> {projects[currentIndex].budget}
-                  </div>
-                  <div>
-                    <strong>Role:</strong> {projects[currentIndex].role}
-                  </div>
-                </div>
-              </div>
 
               <Button
                 onClick={handlePrev}
@@ -195,6 +179,30 @@ const Projects = () => {
               >
                 <ChevronRight className="w-6 h-6 text-foreground" />
               </Button>
+            </div>
+
+            {/* Project details moved below the image */}
+            <div className="p-6 sm:p-8 text-foreground bg-background">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-2">
+                {projects[currentIndex].title}
+              </h3>
+              <p className="text-sm sm:text-base mb-4">
+                {projects[currentIndex].description}
+              </p>
+              <div className="text-xs sm:text-sm space-y-1">
+                <div>
+                  <strong>Timeline:</strong> {projects[currentIndex].timeline}
+                </div>
+                <div>
+                  <strong>Location:</strong> {projects[currentIndex].location}
+                </div>
+                <div>
+                  <strong>Budget:</strong> {projects[currentIndex].budget}
+                </div>
+                <div>
+                  <strong>Role:</strong> {projects[currentIndex].role}
+                </div>
+              </div>
             </div>
           </motion.div>
 
