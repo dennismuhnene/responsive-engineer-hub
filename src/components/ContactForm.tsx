@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,6 +16,23 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // ✅ Prevent global spacebar handlers from blocking typing in input fields
+  useEffect(() => {
+    const allowSpaceInInputs = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      const isInput =
+        target.tagName === "INPUT" || target.tagName === "TEXTAREA";
+
+      if (isInput && e.code === "Space") {
+        e.stopPropagation(); // prevent parent from blocking space
+      }
+    };
+
+    document.addEventListener("keydown", allowSpaceInInputs, true);
+    return () =>
+      document.removeEventListener("keydown", allowSpaceInInputs, true);
+  }, []);
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,8 +48,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Replace with your EmailJS service ID, template ID, and public key
-      // For now, we'll simulate the email sending
+      // Simulate async email sending
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       toast({
@@ -64,6 +80,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
+                type="text"
                 className="rounded-xl border-2 focus:border-primary transition-colors"
               />
             </div>
@@ -83,6 +100,7 @@ const ContactForm = () => {
           <div>
             <Input
               name="subject"
+              type="text"
               placeholder="Subject"
               value={formData.subject}
               onChange={handleInputChange}

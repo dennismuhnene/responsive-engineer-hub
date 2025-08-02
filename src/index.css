@@ -216,27 +216,4 @@ All colors MUST be HSL.
       box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
     }
   }
-
-  /* ✅ Swiper Button Styles for Mobile */
-  .swiper-button-prev,
-  .swiper-button-next {
-    @apply text-primary bg-background rounded-full shadow-md p-2 transition duration-300;
-    z-index: 10;
-  }
-
-  .swiper-button-prev:hover,
-  .swiper-button-next:hover {
-    @apply bg-primary text-background;
-  }
-
-  .swiper-button-disabled {
-    @apply opacity-50 cursor-not-allowed;
-  }
-
-  @media (max-width: 768px) {
-    .swiper-button-prev,
-    .swiper-button-next {
-      @apply w-10 h-10 text-sm;
-    }
-  }
 }

@@ -36,6 +36,22 @@ const Index = () => {
     document.documentElement.classList.add("dark");
   }, []);
 
+  useEffect(() => {
+    // Prevent global spacebar override when focused inside input, textarea, or select
+    const preventGlobalSpacebarBlock = (e: KeyboardEvent) => {
+      const tagName = (e.target as HTMLElement)?.tagName;
+      if (
+        e.code === "Space" &&
+        ["INPUT", "TEXTAREA", "SELECT"].includes(tagName)
+      ) {
+        e.stopPropagation();
+      }
+    };
+    window.addEventListener("keydown", preventGlobalSpacebarBlock, true);
+    return () =>
+      window.removeEventListener("keydown", preventGlobalSpacebarBlock, true);
+  }, []);
+
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.documentElement.classList.toggle("dark");
