@@ -1,26 +1,28 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
-import { Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
+import { Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -31,14 +33,14 @@ const ContactForm = () => {
     try {
       // Replace with your EmailJS service ID, template ID, and public key
       // For now, we'll simulate the email sending
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       toast({
         title: "Message sent successfully!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
-      
-      setFormData({ name: '', email: '', subject: '', message: '' });
+
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       toast({
         title: "Error sending message",
@@ -51,7 +53,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="float-element bg-card/80 backdrop-blur-sm border border-border/50">
+    <Card className="float-element bg-card/80 backdrop-blur-sm border border-border/50 bg-gradient-secondary">
       <CardContent className="p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
@@ -77,7 +79,7 @@ const ContactForm = () => {
               />
             </div>
           </div>
-          
+
           <div>
             <Input
               name="subject"
@@ -88,7 +90,7 @@ const ContactForm = () => {
               className="rounded-xl border-2 focus:border-primary transition-colors"
             />
           </div>
-          
+
           <div>
             <Textarea
               name="message"
@@ -100,7 +102,7 @@ const ContactForm = () => {
               className="rounded-xl border-2 focus:border-primary transition-colors resize-none"
             />
           </div>
-          
+
           <Button
             type="submit"
             disabled={isSubmitting}

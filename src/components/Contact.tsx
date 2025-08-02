@@ -1,27 +1,22 @@
-
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
-import { Mail, Phone, MapPin, Send, Linkedin, Github } from 'lucide-react';
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // XSS Protection: Input sanitization
   const sanitizeInput = (input: string): string => {
-    return input
-      .replace(/[<>]/g, '') // Remove potential HTML tags
-      .trim()
-      .substring(0, 1000); // Limit length
+    return input.replace(/[<>]/g, "").trim().substring(0, 1000);
   };
 
   const validateEmail = (email: string): boolean => {
@@ -29,49 +24,47 @@ const Contact = () => {
     return emailRegex.test(email);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     const sanitizedValue = sanitizeInput(value);
-    
-    setFormData(prev => ({
+
+    setFormData((prev) => ({
       ...prev,
-      [name]: sanitizedValue
+      [name]: sanitizedValue,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validation
+
     if (!formData.name || !formData.email || !formData.message) {
-      toast.error('Please fill in all required fields');
+      toast.error("Please fill in all required fields");
       return;
     }
 
     if (!validateEmail(formData.email)) {
-      toast.error('Please enter a valid email address');
+      toast.error("Please enter a valid email address");
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission (in real app, this would be an API call)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Form submitted:', formData);
-      toast.success('Message sent successfully! I\'ll get back to you soon.');
-      
-      // Reset form
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("Form submitted:", formData);
+      toast.success("Message sent successfully! I'll get back to you soon.");
+
       setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('Failed to send message. Please try again.');
+      console.error("Error submitting form:", error);
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -80,54 +73,54 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'murithijseph93@gmail.com',
-      href: 'mailto:murithijseph93@gmail.com'
+      label: "Email",
+      value: "murithijseph93@gmail.com",
+      href: "mailto:murithijseph93@gmail.com",
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+254 702 096 799',
-      href: 'tel:+254702096799'
+      label: "Phone",
+      value: "+254 702 096 799",
+      href: "tel:+254702096799",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Nairobi, Kenya',
-      href: '#'
-    }
+      label: "Location",
+      value: "Nairobi, Kenya",
+      href: "#",
+    },
   ];
 
   const socialLinks = [
     {
       icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/joseph-murithi-796682a1',
-      color: 'text-blue-600'
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/joseph-murithi-796682a1",
+      color: "text-blue-600 dark:text-blue-400",
     },
     {
       icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/dennismuhnene/',
-      color: 'text-gray-700 dark:text-gray-300'
-    }
+      label: "GitHub",
+      href: "https://github.com/dennismuhnene/",
+      color: "text-gray-700 dark:text-gray-300",
+    },
   ];
 
   return (
-    <section id="contact" className="py-20 px-6 bg-muted/30">
+    <section id="contact" className="py-20 px-6 bg-background text-foreground">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to discuss your next civil engineering project? Let's connect and explore 
-            how we can work together to bring your vision to life.
+            Ready to discuss your next civil engineering project? Let's connect
+            and explore how we can work together to bring your vision to life.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="space-y-6">
-            <Card>
+            <Card className="bg-card text-foreground">
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
               </CardHeader>
@@ -138,10 +131,12 @@ const Contact = () => {
                       <info.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">{info.label}</p>
-                      {info.href !== '#' ? (
-                        <a 
-                          href={info.href} 
+                      <p className="text-sm text-muted-foreground">
+                        {info.label}
+                      </p>
+                      {info.href !== "#" ? (
+                        <a
+                          href={info.href}
                           className="font-medium hover:text-primary transition-colors"
                         >
                           {info.value}
@@ -155,7 +150,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-card text-foreground">
               <CardHeader>
                 <CardTitle>Follow Me</CardTitle>
               </CardHeader>
@@ -173,7 +168,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">{social.label}</p>
-                      <p className="text-sm text-muted-foreground">Let's connect</p>
+                      <p className="text-sm text-muted-foreground">
+                        Let's connect
+                      </p>
                     </div>
                   </a>
                 ))}
@@ -183,7 +180,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card>
+            <Card className="bg-card text-foreground">
               <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
               </CardHeader>
@@ -191,7 +188,10 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Name *
                       </label>
                       <Input
@@ -205,7 +205,10 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-2"
+                      >
                         Email *
                       </label>
                       <Input
@@ -221,7 +224,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Subject
                     </label>
                     <Input
@@ -235,7 +241,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Message *
                     </label>
                     <Textarea
@@ -249,9 +258,9 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
+                  <Button
+                    type="submit"
+                    className="w-full"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -268,7 +277,8 @@ const Contact = () => {
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center">
-                    * Required fields. Your information is secure and will never be shared.
+                    * Required fields. Your information is secure and will never
+                    be shared.
                   </p>
                 </form>
               </CardContent>

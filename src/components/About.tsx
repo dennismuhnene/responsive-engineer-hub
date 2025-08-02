@@ -23,7 +23,10 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6 bg-gradient-secondary">
+    <section
+      id="about"
+      className="py-20 px-6 bg-background transition-colors duration-300"
+    >
       <div className="container mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -60,22 +63,22 @@ const About = () => {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors">
+              <Badge className="bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-colors">
                 Structural Design
               </Badge>
-              <Badge className="bg-secondary/10 text-secondary-foreground border-secondary/20 hover:bg-secondary/20 transition-colors">
+              <Badge className="bg-secondary/20 text-secondary-foreground border border-secondary/30 hover:bg-secondary/30 transition-colors">
                 AutoCAD
               </Badge>
-              <Badge className="bg-accent/10 text-accent-foreground border-accent/20 hover:bg-accent/20 transition-colors">
+              <Badge className="bg-accent/20 text-accent-foreground border border-accent/30 hover:bg-accent/30 transition-colors">
                 Project Management
               </Badge>
-              <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors">
+              <Badge className="bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-colors">
                 Construction Supervision
               </Badge>
-              <Badge className="bg-secondary/10 text-secondary-foreground border-secondary/20 hover:bg-secondary/20 transition-colors">
+              <Badge className="bg-secondary/20 text-secondary-foreground border border-secondary/30 hover:bg-secondary/30 transition-colors">
                 Building Codes
               </Badge>
-              <Badge className="bg-accent/10 text-accent-foreground border-accent/20 hover:bg-accent/20 transition-colors">
+              <Badge className="bg-accent/20 text-accent-foreground border border-accent/30 hover:bg-accent/30 transition-colors">
                 Sustainability
               </Badge>
             </div>
@@ -89,7 +92,7 @@ const About = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
                     <item.icon className="h-8 w-8 text-primary-foreground" />
                   </div>
                   <h3 className="font-semibold mb-2 text-foreground">

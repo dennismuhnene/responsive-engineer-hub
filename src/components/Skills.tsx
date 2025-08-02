@@ -60,13 +60,10 @@ const Skills = () => {
   ];
 
   return (
-    <section
-      id="skills"
-      className="py-20 px-6 bg-gradient-to-b from-background to-muted"
-    >
+    <section id="skills" className="py-20 px-6 bg-background">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Skills & Expertise
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -79,10 +76,10 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="hover:shadow-lg transition-shadow duration-300"
+              className="hover:shadow-lg transition-shadow duration-300 bg-card"
             >
               <CardHeader>
-                <CardTitle className="flex items-center gap-3">
+                <CardTitle className="flex items-center gap-3 text-foreground">
                   <category.icon className="h-6 w-6 text-primary" />
                   {category.title}
                 </CardTitle>
@@ -91,7 +88,9 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className="text-sm font-medium text-foreground">
+                        {skill.name}
+                      </span>
                       <span className="text-sm text-muted-foreground">
                         {skill.level}%
                       </span>
@@ -104,9 +103,9 @@ const Skills = () => {
           ))}
         </div>
 
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-3">
+            <CardTitle className="flex items-center gap-3 text-foreground">
               <Award className="h-6 w-6 text-primary" />
               Certifications & Licenses
             </CardTitle>
@@ -114,7 +113,11 @@ const Skills = () => {
           <CardContent>
             <div className="flex flex-wrap gap-3">
               {certifications.map((cert, index) => (
-                <Badge key={index} variant="outline" className="px-4 py-2">
+                <Badge
+                  key={index}
+                  variant="outline"
+                  className="px-4 py-2 text-foreground"
+                >
                   {cert}
                 </Badge>
               ))}

@@ -50,7 +50,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
       {/* Navigation */}
       <Navigation
         isDark={isDark}
@@ -79,28 +79,28 @@ const Index = () => {
       <Contact />
 
       {/* Footer */}
-      <footer className="bg-gray-100 py-8 border-t">
+      <footer className="py-8 border-t dark:bg-gray-800 bg-gray-100">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             © 2025 Joseph Muriithi, G.Eng. Portfolio. Built with React &
             Tailwind CSS.
           </p>
           <div className="flex justify-center space-x-4 mt-4">
             <a
               href="https://github.com"
-              className="text-gray-600 hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
             >
               <Github className="h-5 w-5" />
             </a>
             <a
               href="https://linkedin.com"
-              className="text-gray-600 hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
             >
               <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="mailto:contact@engineer.com"
-              className="text-gray-600 hover:text-primary transition-colors"
+              className="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
             >
               <Mail className="h-5 w-5" />
             </a>
