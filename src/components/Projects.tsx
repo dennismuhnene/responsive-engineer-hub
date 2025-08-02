@@ -101,24 +101,26 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 bg-background text-foreground">
+    <section
+      id="projects"
+      className="py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-background text-foreground"
+    >
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-justify">
             A showcase of major civil engineering projects I've led and
             contributed to, demonstrating expertise across various
             infrastructure domains.
           </p>
         </div>
 
-        {/* Navigation buttons and Swiper Carousel */}
         <div className="relative">
           <Swiper
             spaceBetween={24}
-            slidesPerView={1.2}
+            slidesPerView={1.05}
             autoplay={{
               delay: 4000,
               disableOnInteraction: true,
@@ -139,12 +141,18 @@ const Projects = () => {
           >
             {projects.map((project, index) => (
               <SwiperSlide key={index}>
-                <Card className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full">
-                  <div className="h-[200px] sm:h-[250px] md:h-[300px] lg:h-[360px] bg-muted relative overflow-hidden">
+                <Card className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full max-h-[800px] sm:max-h-[700px] md:max-h-[650px]">
+                  <div className="h-[200px] sm:h-[240px] bg-muted relative overflow-hidden">
                     {imageErrors[index] ? (
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                         <div className="text-center text-muted-foreground">
-                          <div className="text-4xl mb-2">🏗️</div>
+                          <div
+                            className="text-4xl mb-2"
+                            role="img"
+                            aria-label="Project illustration"
+                          >
+                            🏗️
+                          </div>
                           <p className="text-sm">{project.title}</p>
                         </div>
                       </div>
@@ -154,6 +162,7 @@ const Projects = () => {
                         alt={project.title}
                         className="w-full h-full object-cover"
                         onError={() => handleImageError(index)}
+                        loading="lazy"
                       />
                     )}
                     <Badge
@@ -162,6 +171,7 @@ const Projects = () => {
                           ? "bg-green-500"
                           : "bg-blue-500"
                       }`}
+                      aria-label={`Project status: ${project.status}`}
                     >
                       {project.status}
                     </Badge>
@@ -171,26 +181,47 @@ const Projects = () => {
                     <CardTitle className="text-xl text-foreground">
                       {project.title}
                     </CardTitle>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-sm text-justify">
                       {project.description}
                     </p>
                   </CardHeader>
 
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-4 pb-4">
                     <div className="grid grid-cols-2 gap-4 text-sm text-foreground">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-primary" />
+                      <div
+                        className="flex items-center gap-2"
+                        aria-label={`Timeline: ${project.timeline}`}
+                      >
+                        <Calendar
+                          className="h-4 w-4 text-primary"
+                          aria-hidden="true"
+                        />
                         <span>{project.timeline}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-primary" />
+                      <div
+                        className="flex items-center gap-2"
+                        aria-label={`Location: ${project.location}`}
+                      >
+                        <MapPin
+                          className="h-4 w-4 text-primary"
+                          aria-hidden="true"
+                        />
                         <span>{project.location}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <DollarSign className="h-4 w-4 text-primary" />
+                      <div
+                        className="flex items-center gap-2"
+                        aria-label={`Budget: ${project.budget}`}
+                      >
+                        <DollarSign
+                          className="h-4 w-4 text-primary"
+                          aria-hidden="true"
+                        />
                         <span>{project.budget}</span>
                       </div>
-                      <div className="text-sm">
+                      <div
+                        className="text-sm"
+                        aria-label={`Role: ${project.role}`}
+                      >
                         <span className="font-medium">Role: </span>
                         <span className="text-muted-foreground">
                           {project.role}
@@ -202,13 +233,17 @@ const Projects = () => {
                       <h4 className="font-medium text-foreground mb-2">
                         Key Features
                       </h4>
-                      <ul className="text-sm text-muted-foreground space-y-1">
+                      <ul className="text-sm text-muted-foreground space-y-1 text-justify">
                         {project.features.map((feature, featureIndex) => (
                           <li
                             key={featureIndex}
                             className="flex items-center gap-2"
+                            aria-label={`Feature: ${feature}`}
                           >
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <div
+                              className="w-1.5 h-1.5 bg-primary rounded-full"
+                              aria-hidden="true"
+                            ></div>
                             {feature}
                           </li>
                         ))}
@@ -225,6 +260,7 @@ const Projects = () => {
                             key={techIndex}
                             variant="secondary"
                             className="text-xs"
+                            aria-label={`Technology used: ${tech}`}
                           >
                             {tech}
                           </Badge>
@@ -233,8 +269,15 @@ const Projects = () => {
                     </div>
 
                     <div className="flex gap-2 pt-2">
-                      <Button size="sm" className="flex-1">
-                        <ExternalLink className="mr-2 h-4 w-4" />
+                      <Button
+                        size="sm"
+                        className="flex-1"
+                        aria-label={`View details of ${project.title}`}
+                      >
+                        <ExternalLink
+                          className="mr-2 h-4 w-4"
+                          aria-hidden="true"
+                        />
                         View Details
                       </Button>
                     </div>
@@ -244,18 +287,17 @@ const Projects = () => {
             ))}
           </Swiper>
 
-          {/* Icon-only navigation buttons */}
           <button
             className="swiper-button-prev absolute top-1/2 left-0 z-10 -translate-y-1/2 p-1 bg-background/80 rounded-full shadow-md hover:bg-background transition hidden sm:flex"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="h-5 w-5 text-primary" />
+            <ChevronLeft className="h-5 w-5 text-primary" aria-hidden="true" />
           </button>
           <button
             className="swiper-button-next absolute top-1/2 right-0 z-10 -translate-y-1/2 p-1 bg-background/80 rounded-full shadow-md hover:bg-background transition hidden sm:flex"
             aria-label="Next slide"
           >
-            <ChevronRight className="h-5 w-5 text-primary" />
+            <ChevronRight className="h-5 w-5 text-primary" aria-hidden="true" />
           </button>
         </div>
       </div>

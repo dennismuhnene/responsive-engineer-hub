@@ -103,13 +103,16 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6 bg-gradient-secondary">
+    <section
+      id="experience"
+      className="py-20 px-4 md:px-6 bg-gradient-secondary"
+    >
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Experience & Education
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-justify">
             My professional journey in civil engineering, from internships to
             medium-level positions, backed by strong academic foundation.
           </p>
@@ -137,23 +140,25 @@ const Experience = () => {
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Building2 className="h-4 w-4" />
+                      <Building2 className="h-4 w-4" aria-label="Company" />
                       <span className="font-medium">{exp.company}</span>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4" />
+                        <Calendar className="h-4 w-4" aria-label="Duration" />
                         <span>{exp.duration}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-4 w-4" aria-label="Location" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">{exp.description}</p>
+                  <p className="text-muted-foreground text-justify">
+                    {exp.description}
+                  </p>
 
                   <div>
                     <h4 className="font-medium mb-2">Key Achievements</h4>
@@ -161,7 +166,7 @@ const Experience = () => {
                       {exp.achievements.map((achievement, achIndex) => (
                         <li
                           key={achIndex}
-                          className="flex items-start gap-2 text-sm text-muted-foreground"
+                          className="flex items-start gap-2 text-sm text-muted-foreground text-justify"
                         >
                           <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                           {achievement}
@@ -178,6 +183,7 @@ const Experience = () => {
                           key={techIndex}
                           variant="secondary"
                           className="text-xs"
+                          aria-label={`Technology: ${tech}`}
                         >
                           {tech}
                         </Badge>
@@ -203,16 +209,16 @@ const Experience = () => {
                   </CardTitle>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Building2 className="h-4 w-4" />
+                      <Building2 className="h-4 w-4" aria-label="School" />
                       <span className="font-medium text-sm">{edu.school}</span>
                     </div>
                     <div className="flex flex-col gap-1 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4" />
+                        <Calendar className="h-4 w-4" aria-label="Duration" />
                         <span>{edu.duration}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-4 w-4" aria-label="Location" />
                         <span>{edu.location}</span>
                       </div>
                     </div>
@@ -223,7 +229,7 @@ const Experience = () => {
                     {edu.details.map((detail, detailIndex) => (
                       <li
                         key={detailIndex}
-                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                        className="flex items-center gap-2 text-sm text-muted-foreground text-justify"
                       >
                         <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
                         {detail}

@@ -40,10 +40,22 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Custom gradient variables */
-    --gradient-primary: linear-gradient(135deg, hsl(14 65% 62%), hsl(40 82% 76%));
-    --gradient-secondary: linear-gradient(135deg, hsl(156 25% 60%), hsl(46 24% 92%));
-    --gradient-accent: linear-gradient(180deg, hsl(46 24% 92%), hsl(46 24% 88%));
-    
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(14 65% 62%),
+      hsl(40 82% 76%)
+    );
+    --gradient-secondary: linear-gradient(
+      135deg,
+      hsl(156 25% 60%),
+      hsl(46 24% 92%)
+    );
+    --gradient-accent: linear-gradient(
+      180deg,
+      hsl(46 24% 92%),
+      hsl(46 24% 88%)
+    );
+
     /* Animation variables */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -59,7 +71,7 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 233 19% 15%; /* Dark version of #3D405B */
+    --background: 233 19% 15%;
     --foreground: 46 24% 92%;
 
     --card: 233 19% 18%;
@@ -68,16 +80,16 @@ All colors MUST be HSL.
     --popover: 233 19% 15%;
     --popover-foreground: 46 24% 92%;
 
-    --primary: 14 65% 62%; /* Keep primary consistent */
+    --primary: 14 65% 62%;
     --primary-foreground: 233 19% 15%;
 
-    --secondary: 156 25% 45%; /* Darker secondary */
+    --secondary: 156 25% 45%;
     --secondary-foreground: 46 24% 92%;
 
     --muted: 233 19% 22%;
     --muted-foreground: 46 24% 75%;
 
-    --accent: 40 82% 65%; /* Slightly darker accent */
+    --accent: 40 82% 65%;
     --accent-foreground: 233 19% 15%;
 
     --destructive: 0 62.8% 30.6%;
@@ -86,11 +98,22 @@ All colors MUST be HSL.
     --border: 233 19% 25%;
     --input: 233 19% 25%;
     --ring: 14 65% 62%;
-    
-    /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(14 65% 62%), hsl(40 82% 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(156 25% 45%), hsl(233 19% 25%));
-    --gradient-accent: linear-gradient(180deg, hsl(233 19% 18%), hsl(233 19% 15%));
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(14 65% 62%),
+      hsl(40 82% 65%)
+    );
+    --gradient-secondary: linear-gradient(
+      135deg,
+      hsl(156 25% 45%),
+      hsl(233 19% 25%)
+    );
+    --gradient-accent: linear-gradient(
+      180deg,
+      hsl(233 19% 18%),
+      hsl(233 19% 15%)
+    );
 
     --sidebar-background: 233 19% 12%;
     --sidebar-foreground: 46 24% 92%;
@@ -112,7 +135,7 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
@@ -123,49 +146,49 @@ All colors MUST be HSL.
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
+
   .transition-bounce {
     transition: var(--transition-bounce);
   }
-  
+
   /* Gradient backgrounds */
   .bg-gradient-primary {
     background: var(--gradient-primary);
   }
-  
+
   .bg-gradient-secondary {
     background: var(--gradient-secondary);
   }
-  
+
   .bg-gradient-accent {
     background: var(--gradient-accent);
   }
-  
+
   /* Floating elements */
   .float-element {
     box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
     transition: var(--transition-smooth);
   }
-  
+
   .float-element:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px -10px hsl(var(--primary) / 0.4);
   }
-  
+
   /* Glass morphism effect */
   .glass {
     background: hsl(var(--background) / 0.8);
     backdrop-filter: blur(12px);
     border: 1px solid hsl(var(--border) / 0.5);
   }
-  
+
   /* Animated underline */
   .animated-underline {
     position: relative;
   }
-  
+
   .animated-underline::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
@@ -174,22 +197,46 @@ All colors MUST be HSL.
     background: hsl(var(--primary));
     transition: width 0.3s ease;
   }
-  
+
   .animated-underline:hover::after {
     width: 100%;
   }
-  
+
   /* Pulse animation for interactive elements */
   .pulse-glow {
     animation: pulse-glow 2s infinite;
   }
-  
+
   @keyframes pulse-glow {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
     }
     50% {
       box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  /* ✅ Swiper Button Styles for Mobile */
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply text-primary bg-background rounded-full shadow-md p-2 transition duration-300;
+    z-index: 10;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    @apply bg-primary text-background;
+  }
+
+  .swiper-button-disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      @apply w-10 h-10 text-sm;
     }
   }
 }

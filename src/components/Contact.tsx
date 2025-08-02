@@ -107,7 +107,10 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-6 bg-background text-foreground">
+    <section
+      id="contact"
+      className="py-20 px-4 sm:px-6 bg-background text-foreground"
+    >
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -127,7 +130,10 @@ const Contact = () => {
               <CardContent className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <div
+                      className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center"
+                      aria-label={info.label}
+                    >
                       <info.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -138,6 +144,7 @@ const Contact = () => {
                         <a
                           href={info.href}
                           className="font-medium hover:text-primary transition-colors"
+                          aria-label={`Contact via ${info.label}`}
                         >
                           {info.value}
                         </a>
@@ -162,8 +169,12 @@ const Contact = () => {
                     className="flex items-center gap-3 hover:bg-muted/50 p-2 rounded-lg transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Follow on ${social.label}`}
                   >
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <div
+                      className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center"
+                      aria-hidden="true"
+                    >
                       <social.icon className={`h-5 w-5 ${social.color}`} />
                     </div>
                     <div>
@@ -202,6 +213,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Your full name"
                         required
+                        aria-label="Your name"
                       />
                     </div>
                     <div>
@@ -219,6 +231,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="your.email@example.com"
                         required
+                        aria-label="Your email address"
                       />
                     </div>
                   </div>
@@ -237,6 +250,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       placeholder="What's this about?"
+                      aria-label="Subject of your message"
                     />
                   </div>
 
@@ -255,6 +269,7 @@ const Contact = () => {
                       placeholder="Tell me about your project or how I can help..."
                       rows={6}
                       required
+                      aria-label="Your message"
                     />
                   </div>
 
@@ -262,6 +277,7 @@ const Contact = () => {
                     type="submit"
                     className="w-full"
                     disabled={isSubmitting}
+                    aria-label="Send message"
                   >
                     {isSubmitting ? (
                       <>
@@ -270,7 +286,7 @@ const Contact = () => {
                       </>
                     ) : (
                       <>
-                        <Send className="mr-2 h-4 w-4" />
+                        <Send className="mr-2 h-4 w-4" aria-hidden="true" />
                         Send Message
                       </>
                     )}
