@@ -12,10 +12,10 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6 bg-muted/30">
+    <section id="about" className="py-20 px-6 bg-gradient-secondary">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">About Me</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Dedicated civil engineer with expertise in structural design, infrastructure development, 
             and sustainable construction practices.
@@ -23,7 +23,7 @@ const About = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div className="space-y-6 animate-slide-in-left">
             <div className="prose prose-lg dark:prose-invert">
               <p className="text-muted-foreground leading-relaxed">
                 I am a passionate civil engineer with over 3 years of experience in designing and 
@@ -44,21 +44,27 @@ const About = () => {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">Structural Design</Badge>
-              <Badge variant="secondary">AutoCAD</Badge>
-              <Badge variant="secondary">Project Management</Badge>
-              <Badge variant="secondary">Construction Supervision</Badge>
-              <Badge variant="secondary">Building Codes</Badge>
-              <Badge variant="secondary">Sustainability</Badge>
+              <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors">Structural Design</Badge>
+              <Badge className="bg-secondary/10 text-secondary-foreground border-secondary/20 hover:bg-secondary/20 transition-colors">AutoCAD</Badge>
+              <Badge className="bg-accent/10 text-accent-foreground border-accent/20 hover:bg-accent/20 transition-colors">Project Management</Badge>
+              <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors">Construction Supervision</Badge>
+              <Badge className="bg-secondary/10 text-secondary-foreground border-secondary/20 hover:bg-secondary/20 transition-colors">Building Codes</Badge>
+              <Badge className="bg-accent/10 text-accent-foreground border-accent/20 hover:bg-accent/20 transition-colors">Sustainability</Badge>
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 animate-slide-in-right">
             {highlights.map((item, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+              <Card 
+                key={index} 
+                className="float-element bg-card/80 backdrop-blur-sm border border-border/50 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 <CardContent className="p-6 text-center">
-                  <item.icon className="h-8 w-8 text-primary mx-auto mb-4" />
-                  <h3 className="font-semibold mb-2">{item.title}</h3>
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center">
+                    <item.icon className="h-8 w-8 text-primary-foreground" />
+                  </div>
+                  <h3 className="font-semibold mb-2 text-foreground">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </CardContent>
               </Card>
