@@ -1,8 +1,7 @@
-
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
-import { Badge } from '@/components/ui/badge';
-import { Code, Wrench, Award, Users } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import { Code, Wrench, Award, Users } from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
@@ -14,8 +13,8 @@ const Skills = () => {
         { name: "Revit", level: 85 },
         { name: "SAP2000", level: 80 },
         { name: "ETABS", level: 75 },
-        { name: "Civil 3D", level: 70 }
-      ]
+        { name: "Civil 3D", level: 70 },
+      ],
     },
     {
       icon: Code,
@@ -25,8 +24,8 @@ const Skills = () => {
         { name: "Primavera P6", level: 85 },
         { name: "SketchUp", level: 80 },
         { name: "GIS Software", level: 75 },
-        { name: "BIM 360", level: 70 }
-      ]
+        { name: "BIM 360", level: 70 },
+      ],
     },
     {
       icon: Award,
@@ -36,8 +35,8 @@ const Skills = () => {
         { name: "Project Management", level: 90 },
         { name: "Construction Supervision", level: 85 },
         { name: "Quality Control", level: 90 },
-        { name: "Cost Estimation", level: 80 }
-      ]
+        { name: "Cost Estimation", level: 80 },
+      ],
     },
     {
       icon: Users,
@@ -47,9 +46,9 @@ const Skills = () => {
         { name: "Client Communication", level: 95 },
         { name: "Problem Solving", level: 90 },
         { name: "Time Management", level: 85 },
-        { name: "Adaptability", level: 88 }
-      ]
-    }
+        { name: "Adaptability", level: 88 },
+      ],
+    },
   ];
 
   const certifications = [
@@ -57,23 +56,31 @@ const Skills = () => {
     "Project Management Professional (PMP)",
     "LEED Green Associate",
     "OSHA 30-Hour Construction Safety",
-    "AutoCAD Certified Professional"
+    "AutoCAD Certified Professional",
   ];
 
   return (
-    <section id="skills" className="py-20 px-6">
+    <section
+      id="skills"
+      className="py-20 px-6 bg-gradient-to-b from-background to-muted"
+    >
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Skills & Expertise
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills, software proficiency, 
-            and professional competencies in civil engineering.
+            A comprehensive overview of my technical skills, software
+            proficiency, and professional competencies in civil engineering.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+            <Card
+              key={index}
+              className="hover:shadow-lg transition-shadow duration-300"
+            >
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
                   <category.icon className="h-6 w-6 text-primary" />
@@ -85,7 +92,9 @@ const Skills = () => {
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                      <span className="text-sm text-muted-foreground">
+                        {skill.level}%
+                      </span>
                     </div>
                     <Progress value={skill.level} className="h-2" />
                   </div>
