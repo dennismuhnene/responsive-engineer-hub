@@ -16,15 +16,18 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  // ✅ Prevent global spacebar handlers from blocking typing in input fields
+  // ✅ Broader fix for spacebar being blocked in inputs across environments
   useEffect(() => {
     const allowSpaceInInputs = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
       const isInput =
         target.tagName === "INPUT" || target.tagName === "TEXTAREA";
 
-      if (isInput && e.code === "Space") {
-        e.stopPropagation(); // prevent parent from blocking space
+      if (
+        isInput &&
+        (e.code === "Space" || e.key === " " || e.keyCode === 32)
+      ) {
+        e.stopPropagation();
       }
     };
 
@@ -48,7 +51,6 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate async email sending
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       toast({
@@ -70,13 +72,14 @@ const ContactForm = () => {
 
   return (
     <Card className="float-element bg-card/80 backdrop-blur-sm border border-border/50 bg-gradient-secondary">
-      <CardContent className="p-8">
+      <CardContent className="px-4 sm:px-8 py-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <Input
                 name="name"
                 placeholder="Your Name"
+                aria-label="Your Name"
                 value={formData.name}
                 onChange={handleInputChange}
                 required
@@ -89,6 +92,7 @@ const ContactForm = () => {
                 name="email"
                 type="email"
                 placeholder="Your Email"
+                aria-label="Your Email"
                 value={formData.email}
                 onChange={handleInputChange}
                 required
@@ -102,6 +106,7 @@ const ContactForm = () => {
               name="subject"
               type="text"
               placeholder="Subject"
+              aria-label="Subject"
               value={formData.subject}
               onChange={handleInputChange}
               required
@@ -113,6 +118,7 @@ const ContactForm = () => {
             <Textarea
               name="message"
               placeholder="Your Message"
+              aria-label="Your Message"
               value={formData.message}
               onChange={handleInputChange}
               required
@@ -125,15 +131,19 @@ const ContactForm = () => {
             type="submit"
             disabled={isSubmitting}
             className="w-full rounded-xl py-3 text-lg font-semibold bg-gradient-primary hover:scale-105 transition-bounce border-0"
+            aria-label="Send Message"
           >
             {isSubmitting ? (
               <div className="flex items-center">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                <div
+                  className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"
+                  aria-label="Loading spinner"
+                ></div>
                 Sending...
               </div>
             ) : (
               <>
-                <Send className="mr-2 h-4 w-4" />
+                <Send className="mr-2 h-4 w-4" aria-hidden="true" />
                 Send Message
               </>
             )}
