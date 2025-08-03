@@ -177,9 +177,8 @@ All colors MUST be HSL.
 
   /* Glass morphism effect */
   .glass {
-    background: hsl(var(--background) / 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border) / 0.5);
+    background: hsl(var(--background) / 0.95);
+    border: 1px solid hsl(var(--border) / 0.3);
   }
 
   /* Animated underline */
