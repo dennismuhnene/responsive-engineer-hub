@@ -7,13 +7,13 @@ const About = () => {
     {
       icon: User,
       title: "3+ Years Experience",
-      desc: "Civil Engineering & Construction",
+      desc: "Civil Engineering-  Design & Construction",
       aria: "Experience icon",
     },
     {
       icon: GraduationCap,
-      title: "Bachelor's Degree",
-      desc: "Structural Engineering",
+      title: "Bachelor of Science",
+      desc: "Civil Engineering",
       aria: "Education icon",
     },
     {

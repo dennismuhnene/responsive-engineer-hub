@@ -9,22 +9,22 @@ const Skills = () => {
       icon: Wrench,
       title: "Technical Skills",
       skills: [
-        { name: "AutoCAD", level: 95 },
-        { name: "Revit", level: 85 },
-        { name: "SAP2000", level: 80 },
-        { name: "ETABS", level: 75 },
-        { name: "Civil 3D", level: 70 },
+        { name: "Reinforced Concrete Design & Drafting", level: 95 },
+        { name: "Building Codes", level: 85 },
+        { name: "Project Management & Construction Supervision", level: 80 },
+        { name: "Structural Steel Building Design", level: 75 },
+        { name: "Bridge Design", level: 70 },
       ],
     },
     {
       icon: Code,
       title: "Software & Tools",
       skills: [
-        { name: "Microsoft Project", level: 90 },
-        { name: "Primavera P6", level: 85 },
-        { name: "SketchUp", level: 80 },
-        { name: "GIS Software", level: 75 },
-        { name: "BIM 360", level: 70 },
+        { name: "Excel Spreadsheets", level: 90 },
+        { name: "Autodesk AutoCAD", level: 85 },
+        { name: "Autodesk Revit", level: 80 },
+        { name: "Staad Pro", level: 75 },
+        { name: "Autodesk Robot Structural Analysis Professional", level: 70 },
       ],
     },
     {
@@ -51,13 +51,7 @@ const Skills = () => {
     },
   ];
 
-  const certifications = [
-    "Professional Engineer (PE) License",
-    "Project Management Professional (PMP)",
-    "LEED Green Associate",
-    "OSHA 30-Hour Construction Safety",
-    "AutoCAD Certified Professional",
-  ];
+  const certifications = ["EBK, Graduate Engineer"];
 
   return (
     <section id="skills" className="py-20 px-4 md:px-6 bg-gradient-tertiary">
@@ -68,7 +62,7 @@ const Skills = () => {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A comprehensive overview of my technical skills, software
-            proficiency, and professional competencies in civil engineering.
+            proficiency and professional competencies in civil engineering.
           </p>
         </div>
 
