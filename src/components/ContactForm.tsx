@@ -16,24 +16,20 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  // ✅ Broader fix for spacebar being blocked in inputs across environments
+  // EmailJS configuration
   useEffect(() => {
-    const allowSpaceInInputs = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement;
-      const isInput =
-        target.tagName === "INPUT" || target.tagName === "TEXTAREA";
-
-      if (
-        isInput &&
-        (e.code === "Space" || e.key === " " || e.keyCode === 32)
-      ) {
-        e.stopPropagation();
+    // Initialize EmailJS with your public key
+    // You'll need to set this up at https://www.emailjs.com/
+    const initEmailJS = async () => {
+      try {
+        const emailjs = await import('emailjs-com');
+        emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS user ID
+      } catch (error) {
+        console.error("Failed to initialize EmailJS:", error);
       }
     };
-
-    document.addEventListener("keydown", allowSpaceInInputs, true);
-    return () =>
-      document.removeEventListener("keydown", allowSpaceInInputs, true);
+    
+    initEmailJS();
   }, []);
 
   const handleInputChange = (
@@ -51,7 +47,23 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Replace these with your actual EmailJS credentials
+      const emailjs = await import('emailjs-com');
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "your-email@example.com", // Replace with your email
+      };
+
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        templateParams,
+        "YOUR_EMAILJS_USER_ID" // Replace with your EmailJS user ID
+      );
 
       toast({
         title: "Message sent successfully!",
@@ -60,6 +72,7 @@ const ContactForm = () => {
 
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
+      console.error("EmailJS Error:", error);
       toast({
         title: "Error sending message",
         description: "Please try again later or contact me directly.",

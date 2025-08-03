@@ -1,11 +1,33 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Building2 } from "lucide-react";
+import { Calendar, MapPin, Building2, ExternalLink } from "lucide-react";
+
+interface Experience {
+  company: string;
+  companyUrl: string;
+  position: string;
+  location: string;
+  duration: string;
+  type: string;
+  description: string;
+  achievements: string[];
+  technologies: string[];
+}
+
+interface Education {
+  degree: string;
+  school: string;
+  schoolUrl: string;
+  location: string;
+  duration: string;
+  details: string[];
+}
 
 const Experience = () => {
-  const experiences = [
+  const experiences: Experience[] = [
     {
       company: "CGP Engineering Consultants",
+      companyUrl: "https://cgpengineering.com", // Replace with actual URL
       position: "Assistant Civil & Structural Engineer",
       location: "Nairobi, Kenya",
       duration: "Jan 2022 - Present",
@@ -15,13 +37,14 @@ const Experience = () => {
       achievements: [
         "Led design of KES 200M commercial high-rise project",
         "Implemented BIM workflows reducing design time by 30%",
-        "Managed team of 8 engieers and technicans across multiple projects",
+        "Managed team of 8 engineers and technicians across multiple projects",
         "Achieved 100% on-time project delivery record",
       ],
       technologies: ["AutoCAD", "Revit", "ETABS", "SAP2000", "BIM 360"],
     },
     {
       company: "Infrastructure Solutions Group",
+      companyUrl: "https://infrastructuresolutions.com", // Replace with actual URL
       position: "Assistant Civil Engineer",
       location: "Ngong Road, Nairobi",
       duration: "Jun 2020 - Dec 2021",
@@ -38,6 +61,7 @@ const Experience = () => {
     },
     {
       company: "Urban Development Associates",
+      companyUrl: "https://urbandevelopment.com", // Replace with actual URL
       position: "Junior Civil Engineer",
       location: "Nairobi, Kenya",
       duration: "Aug 2019 - May 2020",
@@ -54,6 +78,7 @@ const Experience = () => {
     },
     {
       company: "Nyeri County Infrastructure Department",
+      companyUrl: "https://nyeri.go.ke", // Replace with actual URL
       position: "Engineering Intern",
       location: "Nyeri, Kenya",
       duration: "Jun 2018 - Aug 2018",
@@ -75,10 +100,11 @@ const Experience = () => {
     },
   ];
 
-  const education = [
+  const education: Education[] = [
     {
       degree: "Master of Science in Structural Engineering",
-      school: "Univeristy of Nairobi",
+      school: "University of Nairobi",
+      schoolUrl: "https://www.uonbi.ac.ke",
       location: "Nairobi, Kenya",
       duration: "2017 - 2019",
       details: [
@@ -91,6 +117,7 @@ const Experience = () => {
     {
       degree: "Bachelor of Science in Civil Engineering",
       school: "Dedan Kimathi University of Technology",
+      schoolUrl: "https://www.dkut.ac.ke",
       location: "Nyeri, Kenya",
       duration: "2013 - 2017",
       details: [
@@ -108,13 +135,13 @@ const Experience = () => {
       className="py-20 px-4 md:px-6 bg-gradient-secondary"
     >
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 float-element">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Experience & Education
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-justify">
             My professional journey in civil engineering, from internships to
-            medium-level positions, backed by strong academic foundation.
+            senior-level positions, backed by strong academic foundation.
           </p>
         </div>
 
@@ -125,7 +152,7 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <Card
                 key={index}
-                className="hover:shadow-lg transition-shadow duration-300"
+                className="float-element hover:shadow-elegant transition-all duration-500 bg-card/80 backdrop-blur-sm border border-border/50 hover:scale-105"
               >
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -141,7 +168,15 @@ const Experience = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <Building2 className="h-4 w-4" aria-label="Company" />
-                      <span className="font-medium">{exp.company}</span>
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium hover:text-primary transition-colors flex items-center gap-1"
+                      >
+                        {exp.company}
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
@@ -201,7 +236,7 @@ const Experience = () => {
             {education.map((edu, index) => (
               <Card
                 key={index}
-                className="hover:shadow-lg transition-shadow duration-300"
+                className="float-element hover:shadow-elegant transition-all duration-500 bg-card/80 backdrop-blur-sm border border-border/50 hover:scale-105"
               >
                 <CardHeader>
                   <CardTitle className="text-lg leading-tight">
@@ -210,7 +245,15 @@ const Experience = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <Building2 className="h-4 w-4" aria-label="School" />
-                      <span className="font-medium text-sm">{edu.school}</span>
+                      <a
+                        href={edu.schoolUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-sm hover:text-primary transition-colors flex items-center gap-1"
+                      >
+                        {edu.school}
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
                     </div>
                     <div className="flex flex-col gap-1 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">

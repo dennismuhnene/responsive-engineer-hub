@@ -60,9 +60,9 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 md:px-6 bg-background">
+    <section id="skills" className="py-20 px-4 md:px-6 bg-gradient-tertiary">
       <div className="container mx-auto">
-        <div className="text-center mb-16 space-y-4 px-2">
+        <div className="text-center mb-16 space-y-4 px-2 float-element">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Skills & Expertise
           </h2>
@@ -76,7 +76,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="hover:shadow-lg transition-shadow duration-300 bg-card"
+              className="float-element hover:shadow-elegant transition-all duration-500 bg-card/80 backdrop-blur-sm border border-border/50 hover:scale-105"
             >
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-foreground">
@@ -110,7 +110,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <Card className="bg-card">
+        <Card className="float-element bg-card/80 backdrop-blur-sm border border-border/50 hover:shadow-elegant transition-all duration-500">
           <CardHeader>
             <CardTitle className="flex items-center gap-3 text-foreground">
               <Award
