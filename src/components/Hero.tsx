@@ -68,7 +68,7 @@ const Hero = ({ scrollToSection }: HeroProps) => {
           )}
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary animate-fade-in-up">
-            Joseph Muriithi, G.Eng.
+            Name
           </h1>
           <h2 className="text-xl md:text-2xl text-secondary-foreground mt-2 mb-6 animate-slide-in-left">
             Structural Design • Infrastructure Development • Project Management

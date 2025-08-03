@@ -26,7 +26,7 @@ interface Education {
 const Experience = () => {
   const experiences: Experience[] = [
     {
-      company: "CGP Engineering Consultants",
+      company: "Name_1 Engineering Consultants",
       companyUrl: "https://cgpengineering.com", // Replace with actual URL
       position: "Assistant Civil & Structural Engineer",
       location: "Nairobi, Kenya",
@@ -77,7 +77,7 @@ const Experience = () => {
       technologies: ["AutoCAD", "Revit", "SketchUp", "Microsoft Project"],
     },
     {
-      company: "Nyeri County Infrastructure Department",
+      company: "State County Infrastructure Department",
       companyUrl: "https://nyeri.go.ke", // Replace with actual URL
       position: "Engineering Intern",
       location: "Nyeri, Kenya",
@@ -103,8 +103,8 @@ const Experience = () => {
   const education: Education[] = [
     {
       degree: "Master of Science in Structural Engineering",
-      school: "University of Nairobi",
-      schoolUrl: "https://www.uonbi.ac.ke",
+      school: "University of Someplace",
+      schoolUrl: "https://www.someplace.ac.ke",
       location: "Nairobi, Kenya",
       duration: "2017 - 2019",
       details: [
@@ -116,8 +116,8 @@ const Experience = () => {
     },
     {
       degree: "Bachelor of Science in Civil Engineering",
-      school: "Dedan Kimathi University of Technology",
-      schoolUrl: "https://www.dkut.ac.ke",
+      school: "Somewhere University of Technology",
+      schoolUrl: "https://www.somewhere.ac.ke",
       location: "Nyeri, Kenya",
       duration: "2013 - 2017",
       details: [

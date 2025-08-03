@@ -3,19 +3,18 @@ import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
-
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "murithijseph93@gmail.com",
-      href: "mailto:murithijseph93@gmail.com",
+      value: "name@geemail.com",
+      href: "mailto:name@geemail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+254 702 096 799",
-      href: "tel:+254702096799",
+      value: "+254 7## ### ###",
+      href: "tel:+2547######",
     },
     {
       icon: MapPin,
