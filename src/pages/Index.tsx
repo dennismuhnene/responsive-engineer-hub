@@ -85,7 +85,8 @@ const Index = () => {
         <div className="container mx-auto px-6 text-center">
           <div className="float-element">
             <p className="text-muted-foreground text-lg mb-6">
-              © 2025 Joseph Muriithi, G.Eng. Portfolio. Built with React, TypeScript & Tailwind CSS.
+              © 2025 Joseph Muriithi, G.Eng. Portfolio. Built with React,
+              TypeScript & Tailwind CSS.
             </p>
             <div className="flex justify-center space-x-6">
               <a
