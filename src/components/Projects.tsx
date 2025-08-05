@@ -17,7 +17,7 @@ const Projects = () => {
   const projects = [
     {
       title: "Industrial Development",
-      image: "/images/projects/commercial-high-rise.jpg",
+      image: "/images/projects/arichem.jpg",
       description:
         "Civil and Structural Engineering Design and Analysis, including parking of 4600 SM warehouse for Arichem Ltd",
       technologies: ["AutoCAD", "ETABS", "Revit", "BIM 360"],
@@ -32,7 +32,7 @@ const Projects = () => {
       ],
       timeline: "May 2024 - Present",
       location: "Kitengela County, Kenya",
-      budget: "KES 500M",
+      Company: "CGP Consulting Engineers Ltd",
       role: "Assistant Resident Engineer/Assistant Structural Engineer",
       status: "In Progress",
     },
@@ -61,7 +61,7 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Eldoret, Kenya",
-      budget: "KES 300M",
+      Company: "CGP Consulting Engineers Ltd",
       role: "Assistant Structural Engineer",
       status: "Completed",
     },
@@ -69,7 +69,7 @@ const Projects = () => {
       title: "Highway Infrastructure_2",
       description:
         "Preliminary and Detailed Engineering Design for Eldoret Eastern Bypass",
-      image: "/images/projects/highway-bridge.jpg",
+      image: "/images/projects/highwayInf_2.jpg",
       technologies: [
         "Autodesk Bridge Designer",
         "Excel",
@@ -90,7 +90,7 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Eldoret Town, Kenya",
-      budget: "KES 300M",
+      Company: "CGP Consulting Engineers Ltd",
       role: "Assistant Structural Engineer",
       status: "Completed",
     },
@@ -98,7 +98,7 @@ const Projects = () => {
       title: "Highway Infrastructure_3",
       description:
         "Design Review of Lesseru-Kitale (B2) and Morus – Lokichar (A1) Roads",
-      image: "/images/projects/highway-bridge.jpg",
+      image: "/images/projects/highwayInf_3.jpg",
       technologies: [
         "Autodesk Bridge Designer",
         "Excel",
@@ -119,7 +119,7 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Kitale, Kenya",
-      budget: "KES 300M",
+      Company: "CGP Consulting Engineers Ltd",
       role: "Assistant Structural Engineer",
       status: "Completed",
     },
@@ -127,7 +127,7 @@ const Projects = () => {
       title: "WasteWater Infrastructure",
       description:
         "Construction of lot 3 Chuka Sewerage Infrastructure for Tana Water Works Development Agency",
-      image: "/images/projects/highway-bridge.jpg",
+      image: "/images/projects/water-treatment.jpg",
       technologies: ["AutoCAD", "Microsoft Project", "Excel", "Primavera P6"],
       features: [
         "Project Scope: Construction of trunk and secondary sewer lines totaling 51,338 meters",
@@ -140,7 +140,7 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Chuka, Kenya",
-      budget: "KES 300M",
+      Company: "Zhonghao Overseas Construction Engineering Company Ltd",
       role: "Assistant Structural Engineer",
       status: "Completed",
     },
@@ -282,7 +282,7 @@ const Projects = () => {
                   <strong>Location:</strong> {projects[currentIndex].location}
                 </div>
                 <div>
-                  <strong>Budget:</strong> {projects[currentIndex].budget}
+                  <strong>Company:</strong> {projects[currentIndex].Company}
                 </div>
                 <div>
                   <strong>Role:</strong> {projects[currentIndex].role}

@@ -48,7 +48,7 @@ const Hero = ({ scrollToSection }: HeroProps) => {
             <img
               src={profileImage}
               alt="Profile"
-              className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover object-[40%_25%] cursor-pointer hover:scale-105 transition-transform shadow-lg"
+              className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover object-[80%_50%] cursor-pointer hover:scale-105 transition-transform shadow-lg"
               onClick={() => setIsModalOpen(true)}
             />
           </div>
@@ -68,7 +68,7 @@ const Hero = ({ scrollToSection }: HeroProps) => {
           )}
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary animate-fade-in-up">
-            Joseph Muriithi, G.Eng.
+            Joseph Murithi, G.Eng.
           </h1>
           <h2 className="text-xl md:text-2xl text-secondary-foreground mt-2 mb-6 animate-slide-in-left">
             Structural Design • Infrastructure Development • Project Management
