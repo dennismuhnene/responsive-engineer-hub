@@ -1,23 +1,60 @@
 import { useEffect, useState, useCallback } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Settings } from "lucide-react";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { useUser } from "@clerk/clerk-react";
+import { Project, projectService } from "@/lib/supabase";
+import { ProjectManager } from "./ProjectManager";
+import { AdminAuth } from "./AdminAuth";
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+
+const AUTHORIZED_USER_ID = "user_your_authorized_user_id_here";
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>(
-    {}
-  );
+  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showProjectManager, setShowProjectManager] = useState(false);
+  const { user, isSignedIn } = useUser();
+
+  const isAuthorized = isSignedIn && user?.id === AUTHORIZED_USER_ID;
 
   const handleImageError = (index: number) => {
     setImageErrors((prev) => ({ ...prev, [index]: true }));
   };
 
-  const projects = [
+  // Load projects from Supabase
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        const data = await projectService.getAllProjects();
+        setProjects(data || fallbackProjects);
+      } catch (error) {
+        console.error('Failed to load projects:', error);
+        setProjects(fallbackProjects);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProjects();
+  }, []);
+
+  // Fallback projects data
+  const fallbackProjects = [
     {
+      id: "1",
       title: "Industrial Development",
-      image: "/images/projects/arichem.jpg",
+      images: ["/images/projects/arichem.jpg"],
       description:
         "Civil and Structural Engineering Design and Analysis, including parking of 4600 SM warehouse for Arichem Ltd",
       technologies: ["AutoCAD", "ETABS", "Revit", "BIM 360"],
@@ -32,15 +69,20 @@ const Projects = () => {
       ],
       timeline: "May 2024 - Present",
       location: "Kitengela County, Kenya",
-      Company: "CGP Consulting Engineers Ltd",
+      company: "CGP Consulting Engineers Ltd",
+      company_url: "https://cgpconsulting.co.ke",
       role: "Assistant Resident Engineer/Assistant Structural Engineer",
-      status: "In Progress",
+      status: "In Progress" as const,
+      created_at: "2024-01-01",
+      updated_at: "2024-01-01",
+      created_by: "system",
     },
     {
+      id: "2",
       title: "Highway Infrastructure_1",
       description:
         "Preliminary and Detailed Engineering Design for Dualling of A8 Road Eldoret Town",
-      image: "/images/projects/highway-bridge.jpg",
+      images: ["/images/projects/highway-bridge.jpg"],
       technologies: [
         "Autodesk Bridge Designer",
         "Excel",
@@ -61,15 +103,20 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Eldoret, Kenya",
-      Company: "CGP Consulting Engineers Ltd",
+      company: "CGP Consulting Engineers Ltd",
+      company_url: "https://cgpconsulting.co.ke",
       role: "Assistant Structural Engineer",
-      status: "Completed",
+      status: "Completed" as const,
+      created_at: "2024-01-01",
+      updated_at: "2024-01-01",
+      created_by: "system",
     },
     {
+      id: "3",
       title: "Highway Infrastructure_2",
       description:
         "Preliminary and Detailed Engineering Design for Eldoret Eastern Bypass",
-      image: "/images/projects/highwayInf_2.jpg",
+      images: ["/images/projects/highwayInf_2.jpg"],
       technologies: [
         "Autodesk Bridge Designer",
         "Excel",
@@ -90,15 +137,20 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Eldoret Town, Kenya",
-      Company: "CGP Consulting Engineers Ltd",
+      company: "CGP Consulting Engineers Ltd",
+      company_url: "https://cgpconsulting.co.ke",
       role: "Assistant Structural Engineer",
-      status: "Completed",
+      status: "Completed" as const,
+      created_at: "2024-01-01",
+      updated_at: "2024-01-01",
+      created_by: "system",
     },
     {
+      id: "4",
       title: "Highway Infrastructure_3",
       description:
         "Design Review of Lesseru-Kitale (B2) and Morus – Lokichar (A1) Roads",
-      image: "/images/projects/highwayInf_3.jpg",
+      images: ["/images/projects/highwayInf_3.jpg"],
       technologies: [
         "Autodesk Bridge Designer",
         "Excel",
@@ -119,15 +171,20 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Kitale, Kenya",
-      Company: "CGP Consulting Engineers Ltd",
+      company: "CGP Consulting Engineers Ltd",
+      company_url: "https://cgpconsulting.co.ke",
       role: "Assistant Structural Engineer",
-      status: "Completed",
+      status: "Completed" as const,
+      created_at: "2024-01-01",
+      updated_at: "2024-01-01",
+      created_by: "system",
     },
     {
+      id: "5",
       title: "WasteWater Infrastructure",
       description:
         "Construction of lot 3 Chuka Sewerage Infrastructure for Tana Water Works Development Agency",
-      image: "/images/projects/water-treatment.jpg",
+      images: ["/images/projects/water-treatment.jpg"],
       technologies: ["AutoCAD", "Microsoft Project", "Excel", "Primavera P6"],
       features: [
         "Project Scope: Construction of trunk and secondary sewer lines totaling 51,338 meters",
@@ -140,9 +197,13 @@ const Projects = () => {
       ],
       timeline: "June 2022 - May 2024",
       location: " Chuka, Kenya",
-      Company: "Zhonghao Overseas Construction Engineering Company Ltd",
+      company: "Zhonghao Overseas Construction Engineering Company Ltd",
+      company_url: "https://zhonghao.com",
       role: "Assistant Structural Engineer",
-      status: "Completed",
+      status: "Completed" as const,
+      created_at: "2024-01-01",
+      updated_at: "2024-01-01",
+      created_by: "system",
     },
   ];
 
@@ -161,6 +222,33 @@ const Projects = () => {
     return () => clearInterval(interval);
   }, [handleNext]);
 
+  if (showProjectManager) {
+    return (
+      <AdminAuth>
+        <ProjectManager />
+        <Button
+          onClick={() => setShowProjectManager(false)}
+          variant="outline"
+          className="fixed top-6 right-6 z-50"
+        >
+          Back to Portfolio
+        </Button>
+      </AdminAuth>
+    );
+  }
+
+  if (loading) {
+    return (
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-background text-foreground">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center">
+            <div className="animate-pulse">Loading projects...</div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="projects"
@@ -168,9 +256,22 @@ const Projects = () => {
     >
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured Projects
-          </h2>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Featured Projects
+            </h2>
+            {isAuthorized && (
+              <Button
+                onClick={() => setShowProjectManager(true)}
+                variant="outline"
+                size="sm"
+                className="gap-2"
+              >
+                <Settings className="w-4 h-4" />
+                Manage
+              </Button>
+            )}
+          </div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-center">
             A showcase of major civil engineering projects I've led and
             contributed to, demonstrating expertise across various
@@ -188,23 +289,36 @@ const Projects = () => {
             className="rounded-xl overflow-hidden shadow-md bg-muted relative"
           >
             <div className="relative w-full h-[300px] sm:h-[450px] md:h-[500px]">
-              {imageErrors[currentIndex] ? (
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+              {projects[currentIndex].images && projects[currentIndex].images.length > 0 ? (
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                  navigation
+                  pagination={{ clickable: true }}
+                  autoplay={{ delay: 5000, disableOnInteraction: false }}
+                  effect="fade"
+                  className="w-full h-full rounded-xl"
+                  touchRatio={1}
+                  touchAngle={45}
+                  threshold={10}
+                >
+                  {projects[currentIndex].images.map((image, imgIndex) => (
+                    <SwiperSlide key={imgIndex}>
+                      <img
+                        src={image}
+                        alt={`${projects[currentIndex].title} - Image ${imgIndex + 1}`}
+                        className="w-full h-full object-cover rounded-xl"
+                        onError={() => handleImageError(currentIndex)}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-xl">
                   <div className="text-center text-muted-foreground">
                     <div className="text-4xl mb-2">🏗️</div>
                     <p className="text-sm">{projects[currentIndex].title}</p>
                   </div>
                 </div>
-              ) : (
-                <img
-                  src={projects[currentIndex].image}
-                  alt={projects[currentIndex].title}
-                  onError={() => handleImageError(currentIndex)}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover rounded-xl"
-                  style={{ imageRendering: "auto" }}
-                />
               )}
 
               <Badge
@@ -282,7 +396,19 @@ const Projects = () => {
                   <strong>Location:</strong> {projects[currentIndex].location}
                 </div>
                 <div>
-                  <strong>Company:</strong> {projects[currentIndex].Company}
+                  <strong>Company:</strong>{" "}
+                  {projects[currentIndex].company_url ? (
+                    <a
+                      href={projects[currentIndex].company_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline transition-colors"
+                    >
+                      {projects[currentIndex].company}
+                    </a>
+                  ) : (
+                    projects[currentIndex].company
+                  )}
                 </div>
                 <div>
                   <strong>Role:</strong> {projects[currentIndex].role}
