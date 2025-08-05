@@ -16,75 +16,132 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Commercial High-Rise Building",
-      image: "/images/projects/commercial-high-rise.jpg",
+      title: "Industrial Development",
+      image: "/images/projects/arichem.jpg",
       description:
-        "Structural design and construction supervision of a 25-story commercial building with mixed-use spaces including offices, retail, and parking facilities.",
+        "Civil and Structural Engineering Design and Analysis, including parking of 4600 SM warehouse for Arichem Ltd",
       technologies: ["AutoCAD", "ETABS", "Revit", "BIM 360"],
       features: [
-        "Seismic-resistant design",
-        "LEED Gold certification",
-        "Complex foundation system",
-        "Advanced MEP coordination",
+        "Engineering Scope: Integrated civil (site grading, drainage, roads) and structural (warehouse framing, foundations) design and analysis",
+        "Construction Phase Focus: On-site supervision and compliance with design specifications and safety standards",
+        "Key Deliverables: As-built drawings and as-built bill of quantities for accurate project recordkeeping",
+        "Change Management: Handling RFIs and assisting in processing change orders",
+        "Role Emphasis: Technical oversight, quality control, and coordination between contractor, design team, and client",
+        "Safety & Compliance: Active enforcement of site safety protocols and hazard identification",
+        "Stakeholder Coordination: Strong communication link among all project parties to ensure smooth execution",
       ],
-      timeline: "18 months",
-      location: "Kitengela Town, Nairobi",
-      budget: "KES 500M",
+      timeline: "May 2024 - Present",
+      location: "Kitengela County, Kenya",
+      Company: "CGP Consulting Engineers Ltd",
+      role: "Assistant Resident Engineer/Assistant Structural Engineer",
+      status: "In Progress",
+    },
+    {
+      title: "Highway Infrastructure_1",
+      description:
+        "Preliminary and Detailed Engineering Design for Dualling of A8 Road Eldoret Town",
+      image: "/images/projects/highway-bridge.jpg",
+      technologies: [
+        "Autodesk Bridge Designer",
+        "Excel",
+        "STAAD Pro",
+        "Autodesk Revit",
+        "Autodesk Robot Structural Analysis",
+        "AutoCAD",
+      ],
+      features: [
+        "Structural Scope: Design of road-related structures including bridges, box culverts, and retaining walls",
+        "Drawing Production: Preparation of structural drawings aligned with roadway geometry and site constraints",
+        "Standards Compliance: Structural design executed in adherence to British Standards",
+        "Geotechnical Integration: Interpretation of geotechnical reports to inform foundation and structural design",
+        "Quantity Estimation: Preparation of detailed takeoff sheets for bill of quantities (BoQ)",
+        "Stakeholder Engagement: Participation in meetings and preparation of presentation slides for project stakeholders",
+        "Design Interpretation: Translation of road geometry into feasible structural concepts based on site obstacles",
+        "Team Collaboration: Supported multidisciplinary coordination during design and documentation phases",
+      ],
+      timeline: "June 2022 - May 2024",
+      location: " Eldoret, Kenya",
+      Company: "CGP Consulting Engineers Ltd",
       role: "Assistant Structural Engineer",
       status: "Completed",
     },
     {
-      title: "Highway Bridge Infrastructure",
+      title: "Highway Infrastructure_2",
       description:
-        "Design and construction of a 500-meter prestressed concrete bridge connecting two major highways, including approach roads and drainage systems.",
-      image: "/images/projects/highway-bridge.jpg",
-      technologies: ["SAP2000", "Civil 3D", "Primavera P6", "GIS"],
-      features: [
-        "Prestressed concrete design",
-        "Seismic isolation system",
-        "Environmental impact mitigation",
-        "Traffic management during construction",
+        "Preliminary and Detailed Engineering Design for Eldoret Eastern Bypass",
+      image: "/images/projects/highwayInf_2.jpg",
+      technologies: [
+        "Autodesk Bridge Designer",
+        "Excel",
+        "STAAD Pro",
+        "Autodesk Revit",
+        "Autodesk Robot Structural Analysis",
+        "AutoCAD",
       ],
-      timeline: "24 months",
-      location: " Eldoret Southern Bypass",
-      budget: "KES 300M",
-      role: "Bridge Design Engineer",
+      features: [
+        "Structural Scope: Design of road-related structures including bridges, box culverts, and retaining walls",
+        "Drawing Production: Preparation of structural drawings aligned with roadway geometry and site constraints",
+        "Standards Compliance: Structural design executed in adherence to British Standards",
+        "Geotechnical Integration: Interpretation of geotechnical reports to inform foundation and structural design",
+        "Quantity Estimation: Preparation of detailed takeoff sheets for bill of quantities (BoQ)",
+        "Stakeholder Engagement: Participation in meetings and preparation of presentation slides for project stakeholders",
+        "Design Interpretation: Translation of road geometry into feasible structural concepts based on site obstacles",
+        "Team Collaboration: Supported multidisciplinary coordination during design and documentation phases",
+      ],
+      timeline: "June 2022 - May 2024",
+      location: " Eldoret Town, Kenya",
+      Company: "CGP Consulting Engineers Ltd",
+      role: "Assistant Structural Engineer",
       status: "Completed",
     },
     {
-      title: "Residential Complex Development",
+      title: "Highway Infrastructure_3",
       description:
-        "Master planning and structural design for a 200-unit residential complex with community facilities, green spaces, and sustainable infrastructure.",
-      image: "/images/projects/residential-complex.jpg",
-      technologies: ["Revit", "ETABS", "AutoCAD", "Microsoft Project"],
-      features: [
-        "Sustainable design principles",
-        "Community-centered planning",
-        "Stormwater management",
-        "Energy-efficient systems",
+        "Design Review of Lesseru-Kitale (B2) and Morus – Lokichar (A1) Roads",
+      image: "/images/projects/highwayInf_3.jpg",
+      technologies: [
+        "Autodesk Bridge Designer",
+        "Excel",
+        "STAAD Pro",
+        "Autodesk Revit",
+        "Autodesk Robot Structural Analysis",
+        "AutoCAD",
       ],
-      timeline: "30 months",
-      location: "Kilimani Estate",
-      budget: "KES 150M",
-      role: "Design Lead",
-      status: "In Progress",
+      features: [
+        "Structural Scope: Design of road-related structures including bridges, box culverts, and retaining walls",
+        "Drawing Production: Preparation of structural drawings aligned with roadway geometry and site constraints",
+        "Standards Compliance: Structural design executed in adherence to British Standards",
+        "Geotechnical Integration: Interpretation of geotechnical reports to inform foundation and structural design",
+        "Quantity Estimation: Preparation of detailed takeoff sheets for bill of quantities (BoQ)",
+        "Stakeholder Engagement: Participation in meetings and preparation of presentation slides for project stakeholders",
+        "Design Interpretation: Translation of road geometry into feasible structural concepts based on site obstacles",
+        "Team Collaboration: Supported multidisciplinary coordination during design and documentation phases",
+      ],
+      timeline: "June 2022 - May 2024",
+      location: " Kitale, Kenya",
+      Company: "CGP Consulting Engineers Ltd",
+      role: "Assistant Structural Engineer",
+      status: "Completed",
     },
     {
-      title: "Water Treatment Facility",
+      title: "WasteWater Infrastructure",
       description:
-        "Design and construction of a modern water treatment plant with capacity for 50,000 residents, including advanced filtration and quality control systems.",
+        "Construction of lot 3 Chuka Sewerage Infrastructure for Tana Water Works Development Agency",
       image: "/images/projects/water-treatment.jpg",
-      technologies: ["Civil 3D", "EPANET", "AutoCAD", "Project Management"],
+      technologies: ["AutoCAD", "Microsoft Project", "Excel", "Primavera P6"],
       features: [
-        "Advanced treatment processes",
-        "Environmental compliance",
-        "Remote monitoring systems",
-        "Emergency backup systems",
+        "Project Scope: Construction of trunk and secondary sewer lines totaling 51,338 meters",
+        "Sewage Treatment: Development of Ntuntuni Sewage Treatment Plant with a 2,300 m³/day capacity",
+        "Site Management: Oversight of daily construction activities and enforcement of technical standards",
+        "Progress Monitoring: Tracked work progress against schedule and proactively identified delays",
+        "Subcontractor Coordination: Ensured synchronized execution of tasks among multiple subcontractors",
+        "Logistics Oversight: Managed timely delivery and distribution of materials and equipment on-site",
+        "Documentation & Reporting: Maintained accurate site records including daily logs, progress reports, and non-compliance reports",
       ],
-      timeline: "15 months",
-      location: "Kilifi County",
-      budget: "KES 200M",
-      role: "Assistant Project Manager",
+      timeline: "June 2022 - May 2024",
+      location: " Chuka, Kenya",
+      Company: "Zhonghao Overseas Construction Engineering Company Ltd",
+      role: "Assistant Structural Engineer",
       status: "Completed",
     },
   ];
@@ -100,7 +157,7 @@ const Projects = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 15000); // auto-advance every 15 seconds
+    }, 30000);
     return () => clearInterval(interval);
   }, [handleNext]);
 
@@ -181,7 +238,6 @@ const Projects = () => {
               </Button>
             </div>
 
-            {/* Project details moved below the image */}
             <div className="p-6 sm:p-8 text-foreground bg-background">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-2">
                 {projects[currentIndex].title}
@@ -189,6 +245,35 @@ const Projects = () => {
               <p className="text-sm sm:text-base mb-4">
                 {projects[currentIndex].description}
               </p>
+
+              {/* Technologies */}
+              {projects[currentIndex].technologies?.length > 0 && (
+                <div className="mb-4">
+                  <h3 className="font-semibold text-base sm:text-lg mb-1">
+                    Technologies:
+                  </h3>
+                  <ul className="list-disc list-inside text-sm sm:text-base text-muted-foreground ml-4 space-y-1">
+                    {projects[currentIndex].technologies.map((tech, idx) => (
+                      <li key={idx}>{tech}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Features */}
+              {projects[currentIndex].features?.length > 0 && (
+                <div className="mb-4">
+                  <h3 className="font-semibold text-base sm:text-lg mb-1">
+                    Features:
+                  </h3>
+                  <ul className="list-disc list-inside text-sm sm:text-base text-muted-foreground ml-4 space-y-1">
+                    {projects[currentIndex].features.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="text-xs sm:text-sm space-y-1">
                 <div>
                   <strong>Timeline:</strong> {projects[currentIndex].timeline}
@@ -197,7 +282,7 @@ const Projects = () => {
                   <strong>Location:</strong> {projects[currentIndex].location}
                 </div>
                 <div>
-                  <strong>Budget:</strong> {projects[currentIndex].budget}
+                  <strong>Company:</strong> {projects[currentIndex].Company}
                 </div>
                 <div>
                   <strong>Role:</strong> {projects[currentIndex].role}

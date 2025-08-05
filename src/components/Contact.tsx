@@ -28,7 +28,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/joseph-murithi-796682a1",
+      href: "http://www.linkedin.com/in/joseph-murithi-796682a1",
       color: "text-blue-600 dark:text-blue-400",
     },
     {

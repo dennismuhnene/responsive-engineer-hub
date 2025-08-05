@@ -26,94 +26,54 @@ interface Education {
 const Experience = () => {
   const experiences: Experience[] = [
     {
-      company: "Name_1 Engineering Consultants",
-      companyUrl: "https://cgpengineering.com", // Replace with actual URL
+
+      company: "CGP Consulting Engineers",
+      companyUrl: "https://cgp.co.ke/",
       position: "Assistant Civil & Structural Engineer",
       location: "Nairobi, Kenya",
-      duration: "Jan 2022 - Present",
+      duration: "June 2022 - Present",
       type: "Full-time",
       description:
-        "Assisted in leading structural design projects and managing a team of engineering technicians on large-scale infrastructure developments.",
+        "Contributed to civil and structural engineering design and analysis for warehouse, commercial, and transport infrastructure projects. Supported both design and construction supervision phases, including BIM coordination, detailed design of bridges and culverts, and preparation of as-built documentation.",
       achievements: [
-        "Led design of KES 200M commercial high-rise project",
-        "Implemented BIM workflows reducing design time by 30%",
-        "Managed team of 8 engineers and technicians across multiple projects",
-        "Achieved 100% on-time project delivery record",
-      ],
-      technologies: ["AutoCAD", "Revit", "ETABS", "SAP2000", "BIM 360"],
-    },
-    {
-      company: "Infrastructure Solutions Group",
-      companyUrl: "https://infrastructuresolutions.com", // Replace with actual URL
-      position: "Assistant Civil Engineer",
-      location: "Ngong Road, Nairobi",
-      duration: "Jun 2020 - Dec 2021",
-      type: "Full-time",
-      description:
-        "Specialized in transportation infrastructure projects including highway design and bridge construction supervision.",
-      achievements: [
-        "Designed 3 major highway bridge projects",
-        "Reduced construction costs by 15% through value engineering",
-        "Obtained Professional Engineer (PE) license",
-        "Led quality assurance for KES 300M bridge project",
-      ],
-      technologies: ["Civil 3D", "SAP2000", "Primavera P6", "MicroStation"],
-    },
-    {
-      company: "Urban Development Associates",
-      companyUrl: "https://urbandevelopment.com", // Replace with actual URL
-      position: "Junior Civil Engineer",
-      location: "Nairobi, Kenya",
-      duration: "Aug 2019 - May 2020",
-      type: "Full-time",
-      description:
-        "Focused on residential and commercial building design, site development, and construction document preparation.",
-      achievements: [
-        "Completed structural analysis for 15+ residential projects",
-        "Assisted in obtaining LEED certification for 3 projects",
-        "Prepared detailed construction drawings and specifications",
-        "Collaborated with architects and MEP engineers",
-      ],
-      technologies: ["AutoCAD", "Revit", "SketchUp", "Microsoft Project"],
-    },
-    {
-      company: "State County Infrastructure Department",
-      companyUrl: "https://nyeri.go.ke", // Replace with actual URL
-      position: "Engineering Intern",
-      location: "Nyeri, Kenya",
-      duration: "Jun 2018 - Aug 2018",
-      type: "Internship",
-      description:
-        "Supported county infrastructure projects and assisted with environmental impact assessments.",
-      achievements: [
-        "Conducted site surveys for 10+ municipal projects",
-        "Assisted in preparing environmental impact reports",
-        "Created GIS maps for city planning initiatives",
-        "Participated in community stakeholder meetings",
+        "Delivered structural and civil design for 4600 SM warehouse project (KES 500M)",
+        "Supported structural design of bridges, culverts, and retaining walls for A8 highway project (KES 300M)",
+        "Produced detailed BoQs and structural drawings using AutoCAD and Revit",
+        "Maintained strict quality control and compliance during on-site supervision and inspections",
+        "Participated in client and stakeholder presentations to communicate technical progress",
       ],
       technologies: [
-        "GIS Software",
         "AutoCAD",
+        "ETABS",
+        "Revit",
+        "BIM 360",
+        "STAAD Pro",
+        "Autodesk Robot Structural Analysis",
+        "Autodesk Bridge Designer",
         "Excel",
-        "Field Survey Equipment",
       ],
+    },
+    {
+      company: "Zhonghao Overseas Construction Engineering Company Limited",
+      companyUrl: "http://www.zh100.com/",
+      position: "Site Engineer",
+      location: "Kisumu, Kenya",
+      duration: "February 2022 - May 2022",
+      type: "Full-time",
+      description:
+        "Construction of lot 3 Chuka Sewerage Infrastructure for Tana Water Works Development Agency, involving large-scale wastewater systems and treatment facilities.",
+      achievements: [
+        "Completed construction of 51,338 meters of trunk and secondary sewer lines",
+        "Supervised development of Ntuntuni Sewage Treatment Plant with 2,300 m³/day capacity",
+        "Ensured adherence to design specifications and construction timelines",
+        "Coordinated multiple subcontractors for smooth execution of site activities",
+        "Maintained accurate records of daily site activities and addressed non-compliance issues promptly",
+      ],
+      technologies: ["AutoCAD", "Microsoft Project", "Excel", "Primavera P6"],
     },
   ];
 
   const education: Education[] = [
-    {
-      degree: "Master of Science in Structural Engineering",
-      school: "University of Someplace",
-      schoolUrl: "https://www.someplace.ac.ke",
-      location: "Nairobi, Kenya",
-      duration: "2017 - 2019",
-      details: [
-        "Specialization in Earthquake Engineering",
-        "Thesis: Advanced Seismic Analysis Methods",
-        "GPA: 3.8/4.0",
-        "Graduate Research Assistant",
-      ],
-    },
     {
       degree: "Bachelor of Science in Civil Engineering",
       school: "Somewhere University of Technology",
@@ -121,10 +81,10 @@ const Experience = () => {
       location: "Nyeri, Kenya",
       duration: "2013 - 2017",
       details: [
-        "Magna Cum Laude",
-        "Minor in Construction Management",
-        "GPA: 3.7/4.0",
-        "President of Civil Engineering Society",
+        "2:2",
+        " Structural & Civil Engineering",
+        "GPA: 3.0/4.0",
+        "Member of Civil Engineering Society",
       ],
     },
   ];
