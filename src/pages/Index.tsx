@@ -27,7 +27,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
-import { AdminButton } from "@/components/AdminAuth";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [isDark, setIsDark] = useState(true);
@@ -84,7 +84,15 @@ const Index = () => {
       
       {/* Footer */}
       <Footer />
-      <AdminButton />
+      
+      {/* Simple Admin Link */}
+      <div className="fixed bottom-6 right-6 z-40">
+        <Link to="/admin">
+          <Button variant="outline" size="sm" className="bg-background/80 backdrop-blur-sm">
+            Admin
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };
