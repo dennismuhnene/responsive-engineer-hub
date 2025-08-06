@@ -5,10 +5,7 @@ import { ChevronLeft, ChevronRight, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
-import { useUser } from "@clerk/clerk-react";
 import { Project, projectService } from "@/lib/supabase";
-import { ProjectManager } from "./ProjectManager";
-import { AdminAuth } from "./AdminAuth";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,17 +13,13 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const AUTHORIZED_USER_ID = "user_your_authorized_user_id_here";
+
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showProjectManager, setShowProjectManager] = useState(false);
-  const { user, isSignedIn } = useUser();
-
-  const isAuthorized = isSignedIn && user?.id === AUTHORIZED_USER_ID;
 
   const handleImageError = (index: number) => {
     setImageErrors((prev) => ({ ...prev, [index]: true }));
@@ -222,20 +215,6 @@ const Projects = () => {
     return () => clearInterval(interval);
   }, [handleNext]);
 
-  if (showProjectManager) {
-    return (
-      <AdminAuth>
-        <ProjectManager />
-        <Button
-          onClick={() => setShowProjectManager(false)}
-          variant="outline"
-          className="fixed top-6 right-6 z-50"
-        >
-          Back to Portfolio
-        </Button>
-      </AdminAuth>
-    );
-  }
 
   if (loading) {
     return (
@@ -260,17 +239,6 @@ const Projects = () => {
             <h2 className="text-3xl md:text-4xl font-bold">
               Featured Projects
             </h2>
-            {isAuthorized && (
-              <Button
-                onClick={() => setShowProjectManager(true)}
-                variant="outline"
-                size="sm"
-                className="gap-2"
-              >
-                <Settings className="w-4 h-4" />
-                Manage
-              </Button>
-            )}
           </div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-center">
             A showcase of major civil engineering projects I've led and
