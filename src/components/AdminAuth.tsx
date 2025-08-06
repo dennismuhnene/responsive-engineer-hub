@@ -2,7 +2,7 @@ import { useUser, SignInButton, SignOutButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { Shield, LogOut } from "lucide-react";
 
-const AUTHORIZED_USER_ID = "user_your_authorized_user_id_here";
+const AUTHORIZED_USER_ID = import.meta.env.VITE_AUTHORIZED_USER_ID;
 
 interface AdminAuthProps {
   children: React.ReactNode;
