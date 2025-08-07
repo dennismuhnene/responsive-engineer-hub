@@ -10,7 +10,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Plus, Edit, Trash2, Upload, X, Save, Eye } from "lucide-react";
 import { toast } from "sonner";
 import { Project, projectService } from "@/lib/supabase";
-import { useUser } from "@clerk/clerk-react";
 
 interface ProjectFormData {
   title: string;
@@ -48,7 +47,6 @@ export const ProjectManager = () => {
   const [loading, setLoading] = useState(false);
   const [newTech, setNewTech] = useState("");
   const [newFeature, setNewFeature] = useState("");
-  const { user } = useUser();
 
   useEffect(() => {
     loadProjects();
@@ -66,13 +64,12 @@ export const ProjectManager = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user) return;
 
     setLoading(true);
     try {
       const projectData = {
         ...formData,
-        created_by: user.id
+        created_by: "admin"
       };
 
       if (editingProject) {
