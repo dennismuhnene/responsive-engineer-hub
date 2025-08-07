@@ -54,7 +54,7 @@ const Navigation = ({
               className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-bounce"
               onClick={() => scrollToSection("hero")}
             >
-              Name
+              Joseph Murithi
             </div>
 
             {/* Desktop Navigation */}
