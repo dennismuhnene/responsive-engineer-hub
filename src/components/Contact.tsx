@@ -7,14 +7,14 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "name@geemail.com",
-      href: "mailto:name@geemail.com",
+      value: "jseph.namu@gmail.com",
+      href: "mailto:jseph.namu@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+254 7## ### ###",
-      href: "tel:+2547######",
+      value: "+254 702 096799",
+      href: "tel:+254702096799",
     },
     {
       icon: MapPin,

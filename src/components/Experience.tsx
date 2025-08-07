@@ -26,7 +26,6 @@ interface Education {
 const Experience = () => {
   const experiences: Experience[] = [
     {
-
       company: "CGP Consulting Engineers",
       companyUrl: "https://cgp.co.ke/",
       position: "Assistant Civil & Structural Engineer",
@@ -76,8 +75,8 @@ const Experience = () => {
   const education: Education[] = [
     {
       degree: "Bachelor of Science in Civil Engineering",
-      school: "Somewhere University of Technology",
-      schoolUrl: "https://www.somewhere.ac.ke",
+      school: "Dedan Kimathi University University of Technology",
+      schoolUrl: "https://www.dkut.ac.ke/",
       location: "Nyeri, Kenya",
       duration: "2013 - 2017",
       details: [
