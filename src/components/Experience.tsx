@@ -94,13 +94,13 @@ const Experience = () => {
       className="py-20 px-4 md:px-6 bg-gradient-secondary"
     >
       <div className="container mx-auto">
-        <div className="text-center mb-16 float-element">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Experience & Education
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-justify">
-            My professional journey in civil engineering, from internships to
-            senior-level positions, backed by strong academic foundation.
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            Professional Experience
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            My career journey, key roles, and professional achievements in
+            engineering and technology
           </p>
         </div>
 

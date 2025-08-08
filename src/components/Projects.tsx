@@ -3,21 +3,21 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Settings } from "lucide-react";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { Project, projectService } from "@/lib/supabase";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
-
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
+  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>(
+    {}
+  );
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +32,7 @@ const Projects = () => {
         const data = await projectService.getAllProjects();
         setProjects(data || fallbackProjects);
       } catch (error) {
-        console.error('Failed to load projects:', error);
+        console.error("Failed to load projects:", error);
         setProjects(fallbackProjects);
       } finally {
         setLoading(false);
@@ -215,7 +215,6 @@ const Projects = () => {
     return () => clearInterval(interval);
   }, [handleNext]);
 
-
   if (loading) {
     return (
       <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-8 bg-background text-foreground">
@@ -235,15 +234,14 @@ const Projects = () => {
     >
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
               Featured Projects
-            </h2>
+            </h1>
           </div>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-center">
-            A showcase of major civil engineering projects I've led and
-            contributed to, demonstrating expertise across various
-            infrastructure domains.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            A collection of engineering projects showcasing innovation,
+            technical expertise, and problem-solving capabilities
           </p>
         </div>
 
@@ -257,7 +255,8 @@ const Projects = () => {
             className="rounded-xl overflow-hidden shadow-md bg-muted relative"
           >
             <div className="relative w-full h-[300px] sm:h-[450px] md:h-[500px]">
-              {projects[currentIndex].images && projects[currentIndex].images.length > 0 ? (
+              {projects[currentIndex].images &&
+              projects[currentIndex].images.length > 0 ? (
                 <Swiper
                   modules={[Navigation, Pagination, Autoplay, EffectFade]}
                   navigation
@@ -273,7 +272,9 @@ const Projects = () => {
                     <SwiperSlide key={imgIndex}>
                       <img
                         src={image}
-                        alt={`${projects[currentIndex].title} - Image ${imgIndex + 1}`}
+                        alt={`${projects[currentIndex].title} - Image ${
+                          imgIndex + 1
+                        }`}
                         className="w-full h-full object-cover rounded-xl"
                         onError={() => handleImageError(currentIndex)}
                       />
