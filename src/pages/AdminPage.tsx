@@ -1,17 +1,17 @@
-import { ClerkWrapper } from "@/components/ClerkProvider";
-import { AdminAuth, AdminButton } from "@/components/AdminAuth";
+import AdminNav from "@/components/AdminNav";
 import { ProjectManager } from "@/components/ProjectManager";
+import { SimpleAuth } from "@/components/SimpleAuth";
 
 const AdminPage = () => {
   return (
-    <ClerkWrapper>
-      <AdminAuth>
-        <div className="min-h-screen bg-background">
+    <SimpleAuth>
+      <div className="min-h-screen bg-background">
+        <AdminNav />
+        <main className="pt-20">
           <ProjectManager />
-          <AdminButton />
-        </div>
-      </AdminAuth>
-    </ClerkWrapper>
+        </main>
+      </div>
+    </SimpleAuth>
   );
 };
 
