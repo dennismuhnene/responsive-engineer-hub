@@ -69,7 +69,11 @@ export const AdminButton = () => {
   return (
     <div className="fixed bottom-6 right-6 z-40">
       <SignOutButton>
-        <Button variant="outline" size="sm" className="bg-background/80 backdrop-blur-sm">
+        <Button
+          variant="outline"
+          size="sm"
+          className="bg-background/80 backdrop-blur-sm"
+        >
           <LogOut className="mr-2 h-4 w-4" />
           Admin Logout
         </Button>

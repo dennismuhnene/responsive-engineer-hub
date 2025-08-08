@@ -18,10 +18,10 @@ const ContactForm = () => {
 
     try {
       const result = await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        "service_k4s54f7", // Hardcoded Service ID
+        "template_pvrqk6f", // Hardcoded Template ID
         formRef.current!,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        "UekgSgCEBJiN5GtFy" // Hardcoded Public Key
       );
 
       console.log("EmailJS Success:", result.text);
